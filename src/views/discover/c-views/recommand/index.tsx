@@ -21,7 +21,7 @@ const Recommand: FC<IProps> = memo((props) => {
     return(
     <div>
         {
-            banner && banner.banners.map((item: any)=>{
+            banner?.banners?.map((item: any)=>{
                 return <div key={item.targetId}>
                     <img src={item.imageUrl} alt=""/>
                 </div>
