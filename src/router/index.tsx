@@ -10,7 +10,7 @@ const Mine = React.lazy(() => import('@/views/mine'));
 const Artist = React.lazy(() => import('@/views/discover/c-views/artist'));
 const Djradio = React.lazy(() => import('@/views/discover/c-views/djradio'));
 const Ranking = React.lazy(() => import('@/views/discover/c-views/ranking'));
-const Recommand = React.lazy(() => import('@/views/discover/c-views/recommand'));
+const Recommand = React.lazy(() => import('@/views/discover/c-views/recommend'));
 const Songs = React.lazy(() => import('@/views/discover/c-views/songs'));
 const Album = React.lazy(() => import('@/views/discover/c-views/album'));
 
@@ -25,7 +25,7 @@ const routes:RouteObject[]=[
         children:[
             {
                 path:'/discover',
-                element:<Navigate to="/discover/recommand" />
+                element:<Navigate to="/discover/recommend" />
             },
             {
                 path:'/discover/artist',
@@ -40,7 +40,7 @@ const routes:RouteObject[]=[
                 element:<Ranking />
             },
             {
-                path:'/discover/recommand',
+                path:'/discover/recommend',
                 element:<Recommand />
             },
             {
