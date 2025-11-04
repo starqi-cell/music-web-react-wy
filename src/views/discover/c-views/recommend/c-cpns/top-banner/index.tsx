@@ -33,9 +33,6 @@ const TopBanner: FC<IProps> = memo((props) => {
     }
 
     function handleBeforeChange(from: number, to: number){
-        // 延迟更新背景，让它在淡出动画进行到一半时切换
-        // Carousel 的 fade 效果默认持续时间是 500ms，所以在 250ms 时切换背景
-
             setCurrentIndex(to);
 
     }
