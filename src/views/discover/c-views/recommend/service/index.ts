@@ -1,4 +1,5 @@
 import hyRequest from "@/service";
+import { url } from "inspector";
 
 export function getBanners(){
     return hyRequest.get({
@@ -26,6 +27,15 @@ export function getPlayListDetail(id:number){
         url:`/playlist/detail`,
         params:{
             id
+        }
+    });
+}
+
+export function getSettleSinger(limit=5){
+    return hyRequest.get({
+        url:"/artist/list",
+        params:{
+            limit
         }
     });
 }

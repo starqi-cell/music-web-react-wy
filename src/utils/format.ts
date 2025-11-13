@@ -7,5 +7,5 @@ export const formatPlayCount = (count: number) => {
 }
 
 export const getImageSize = (url: string, width: number, height: number=width) => {
-    return url+`?param=${width}x${height}`;
+    return url+`?param=${width}y${height}`;
 }

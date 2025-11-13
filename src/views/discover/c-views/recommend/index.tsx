@@ -1,12 +1,15 @@
 import React,{memo, useEffect} from 'react';
 import type { FC,ReactNode } from 'react';
 import { useAppDispatch } from '@/store';
-import { fetchBannerDataAction, fetchHotRecommendAction,fetchNewAlbumAction,fetchPlayListDetailAction } from './store/index';
+import { fetchBannerDataAction, fetchHotRecommendAction,fetchNewAlbumAction,fetchPlayListDetailAction, fetchSettleSingerAction } from './store/index';
 import TopBanner from './c-cpns/top-banner';
 import { RecommendWrapper } from './style';
 import HotRecommend from './c-cpns/hot-recomend';
 import NewAlbum from './c-cpns/new-album';
 import TopRanking from './c-cpns/top-ranking';
+import UserLogin from './c-cpns/user-login';
+import HotAnchor from './c-cpns/hot-anchor';
+import SettleSinger from './c-cpns/settle-singer';
 
 interface IProps {
     children?: ReactNode;
@@ -20,6 +23,7 @@ const Recommend: FC<IProps> = memo((props) => {
         dispatch(fetchHotRecommendAction());
         dispatch(fetchNewAlbumAction());
         dispatch(fetchPlayListDetailAction());
+        dispatch(fetchSettleSingerAction());
     }, []);
 
     return (
@@ -31,7 +35,11 @@ const Recommend: FC<IProps> = memo((props) => {
                     <NewAlbum />
                     <TopRanking />
                 </div>
-                <div className="right">right</div>
+                <div className="right">
+                    <UserLogin />
+                    <SettleSinger />
+                    <HotAnchor />
+                </div>
             </div>
         </RecommendWrapper>
     );

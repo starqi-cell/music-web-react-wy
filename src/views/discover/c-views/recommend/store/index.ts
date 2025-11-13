@@ -1,15 +1,13 @@
 import { createSlice,createAsyncThunk } from "@reduxjs/toolkit";
-import { getBanners, getHotRecommend, getNewAlbum,getPlayListDetail } from "../service";
+import { getBanners, getSettleSinger, getHotRecommend, getNewAlbum,getPlayListDetail } from "../service";
 
 export const fetchBannerDataAction = createAsyncThunk("banners", async (arg,{dispatch}) => {
     const response = await getBanners();
-    console.log("banners data:",response);
     dispatch(changeBannerAction(response.banners));
 });
 
 export const fetchHotRecommendAction=createAsyncThunk("hotRecommend", async (arg,{dispatch}) => {
     const response=await getHotRecommend(8);
-    console.log("hotRecommend data:",response);
     dispatch(changeHotRecommendAction(response.result))
 
 });
@@ -27,17 +25,24 @@ export const fetchPlayListDetailAction = createAsyncThunk("rankingData", async (
     dispatch(changePlayListDetailAction(playlists));
 });
 
+export const fetchSettleSingerAction=createAsyncThunk("settleSingerData", async (_, { dispatch }) => {
+    const response=await getSettleSinger(5);
+    dispatch(changeSettleSingerAction(response.artists ?? []));
+});
+
 interface IRecommendState {
     banner: any[];
     hotRecommends: any[];
     newAlbums: any[];
     rankings: any[];
+    settleSingers: any[];
 }
 const initialState: IRecommendState = {
     banner: [],
     hotRecommends: [],
     newAlbums: [],
-    rankings: []
+    rankings: [],
+    settleSingers: []
 };
 
 
@@ -56,10 +61,13 @@ export const recommendSlice = createSlice({
         },
         changePlayListDetailAction(state,{ payload }){
             state.rankings=payload;
-    }
+        },
+        changeSettleSingerAction(state,{ payload }){
+            state.settleSingers=payload;
+        }
     }
 });
 
-export const { changeBannerAction, changeHotRecommendAction, changeNewAlbumAction, changePlayListDetailAction } = recommendSlice.actions;
+export const { changeBannerAction, changeHotRecommendAction, changeNewAlbumAction, changePlayListDetailAction, changeSettleSingerAction } = recommendSlice.actions;
 export default recommendSlice.reducer;
 
