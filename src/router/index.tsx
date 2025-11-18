@@ -6,6 +6,7 @@ const Discover = React.lazy(() => import('@/views/discover'));
 const Download = React.lazy(() => import('@/views/download'));
 const Focus = React.lazy(() => import('@/views/focus'));
 const Mine = React.lazy(() => import('@/views/mine'));
+const Player = React.lazy(() => import('@/views/player'));
 
 const Artist = React.lazy(() => import('@/views/discover/c-views/artist'));
 const Djradio = React.lazy(() => import('@/views/discover/c-views/djradio'));
@@ -50,6 +51,10 @@ const routes:RouteObject[]=[
             {
                 path:'/discover/album',
                 element:<Album />
+            },
+            {
+                path:'/discover/player',
+                element:<Player />
             }
         ]
     },

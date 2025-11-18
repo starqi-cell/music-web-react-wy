@@ -1,7 +1,7 @@
 import React,{memo, useEffect} from 'react';
 import type { FC,ReactNode } from 'react';
 import { useAppDispatch } from '@/store';
-import { fetchBannerDataAction, fetchHotRecommendAction,fetchNewAlbumAction,fetchPlayListDetailAction, fetchSettleSingerAction } from './store/index';
+import { fetchBannerDataAction, fetchHotRecommendAction,fetchNewAlbumAction,fetchPlayListDetailAction, fetchSettleSingerAction } from './store/recommand';
 import TopBanner from './c-cpns/top-banner';
 import { RecommendWrapper } from './style';
 import HotRecommend from './c-cpns/hot-recomend';

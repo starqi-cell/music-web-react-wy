@@ -2,6 +2,8 @@ import React,{memo} from 'react';
 import type { FC,ReactNode } from 'react';
 import { TopRankingItemWrapper } from './style';
 import { getImageSize } from '@/utils/format';
+import { useAppDispatch } from '@/store';
+import { fetchCurrentSongDataAction } from '@/views/player/store/player';
 
 interface IProps {
     children?: ReactNode;
@@ -13,6 +15,12 @@ const TopRankingItem: FC<IProps> = memo((props) => {
     const { itemData } = props;
 
     const { tracks=[] } = itemData; 
+    const dispatch = useAppDispatch();
+
+    function handlePlaySong(id?: number) {
+        if (!id) return;
+        dispatch(fetchCurrentSongDataAction(id));
+    }
 
     return (
     <TopRankingItemWrapper>
@@ -24,7 +32,7 @@ const TopRankingItem: FC<IProps> = memo((props) => {
             <div className="info">
                 <div className="name">{itemData.name}</div>
                 <div>
-                    <button className="sprite_02 btn play"></button>
+                    <button className="sprite_02 btn play" onClick={() => handlePlaySong(tracks[0]?.id)}></button>
                     <button className="sprite_02 btn favor"></button>
                 </div>
             </div>
@@ -36,9 +44,9 @@ const TopRankingItem: FC<IProps> = memo((props) => {
                         <div key={item.id} className="list-item">
                             <div className="rank">{index + 1}</div>
                             <div className="info">
-                                <div className="name">{item.name}</div>
+                                <div className="name" onDoubleClick={() => handlePlaySong(item.id)}>{item.name}</div>
                                 <div className="operate">
-                                    <button className="btn sprite_02 play"></button>
+                                    <button className="btn sprite_02 play" onClick={() => handlePlaySong(item.id)}></button>
                                     <button className="btn sprite_icon2 addto"></button>
                                     <button className="btn sprite_02 favor"></button>
                                 </div>

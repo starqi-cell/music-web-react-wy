@@ -4,6 +4,7 @@ import TopRankingItem from '../top-ranking-item';
 import { TopRankingWrapper } from './style';
 import AreaHeaderV1 from '@/components/area-header-v1';
 import { useAppSelector } from '@/store';
+import { shallowEqual } from 'react-redux';
 
 interface IProps {
     children?: ReactNode;
@@ -11,9 +12,9 @@ interface IProps {
 
 const TopRanking: FC<IProps> = memo((props) => {
 
-    const { rankings } = useAppSelector((state) => ({
+    const { rankings=[] } = useAppSelector((state) => ({
         rankings: state.recommend.rankings
-    }));
+    }),shallowEqual);
 
     return (
         <TopRankingWrapper>

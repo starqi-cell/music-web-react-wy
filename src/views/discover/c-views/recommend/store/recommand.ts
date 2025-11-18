@@ -21,7 +21,9 @@ const rankingIds=[19723756,3779629,2884035];
 export const fetchPlayListDetailAction = createAsyncThunk("rankingData", async (_, { dispatch }) => {
     const promises = rankingIds.map((id) => getPlayListDetail(id));
     const res = await Promise.all(promises);
-    const playlists = res.map((item) => item.playlist);
+    const playlists = res
+        .filter((item) => item.playlist)
+        .map((item) => item.playlist);
     dispatch(changePlayListDetailAction(playlists));
 });
 
