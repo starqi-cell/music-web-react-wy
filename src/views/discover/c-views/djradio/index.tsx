@@ -1,13 +1,23 @@
-import React,{memo} from 'react';
-import type { FC,ReactNode } from 'react';
+import React, { memo } from 'react';
+import type { FC, ReactNode } from 'react';
+
+import HYRadioCategory from './c-cpns/radio-category';
+import HYRadioRecommend from './c-cpns/radio-recommend';
+import HYRadioRanking from './c-cpns/radio-ranking';
+import { DjRadioWrapper } from "./style";
 
 interface IProps {
-    children?: ReactNode;
+  children?: ReactNode;
 }
 
-const Djradio: FC<IProps> = memo((props) => {
-
-    return <div>Djradio</div>;
+const HYDjradio: FC<IProps> = memo(() => {
+  return (
+    <DjRadioWrapper className="wrap-v2">
+      <HYRadioCategory />
+      <HYRadioRecommend />
+      <HYRadioRanking />
+    </DjRadioWrapper>
+  )
 });
 
-export default memo(Djradio);
+export default HYDjradio;

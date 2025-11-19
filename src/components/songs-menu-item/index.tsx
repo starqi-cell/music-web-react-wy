@@ -15,7 +15,7 @@ const SongMenuItem: FC<IProps> = memo((props) => {
     return( 
     <MenuItemWrapper>
         <div className='top'>
-            <img src={getImageSize(itemData?.picUrl, 140)} alt={itemData?.name} />
+            <img src={getImageSize(itemData?.picUrl || itemData?.coverImgUrl, 140)} alt={itemData?.name} />
             <div className='cover sprite_cover'>
                 <div className='info sprite_cover'>
                     <span>
