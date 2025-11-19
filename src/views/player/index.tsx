@@ -40,7 +40,6 @@ const Player: FC<IProps> = () => {
                     <div className="meta">歌手：{singerName || '未知歌手'}</div>
                     <div className="meta">专辑：{currentSong?.al?.name ?? '--'}</div>
                     <div className="meta">时长：{formatTime(currentSong?.dt ?? 0)}</div>
-                    <p className="description">提示：双击榜单歌曲或使用底部播放条即可开始播放</p>
                     <LyricList>
                         {lyrics.length ? (
                             lyrics.map((item, index) => (

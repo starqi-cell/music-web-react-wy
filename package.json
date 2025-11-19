@@ -17,6 +17,7 @@
     "axios": "^1.13.1",
     "classnames": "^2.5.1",
     "craco-less": "^2.1.0-alpha.0",
+    "immutable": "^5.1.4",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-redux": "^9.2.0",
@@ -53,6 +54,8 @@
   "devDependencies": {
     "@craco/craco": "^7.0.0-alpha.9",
     "@eslint/js": "^9.38.0",
+    "@types/immutable": "^3.8.6",
+    "@types/react-router-config": "^5.0.11",
     "@types/styled-components": "^5.1.35",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^10.1.8",

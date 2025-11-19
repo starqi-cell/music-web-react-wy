@@ -26,7 +26,7 @@
   },
   {
     "title": "下载客户端",
-    "type": "path",
-    "link": "/download"
+    "type": "link",
+    "link": "https://music.163.com/#/download"
   }
 ]

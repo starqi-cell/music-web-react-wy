@@ -107,7 +107,7 @@ export const HeaderRight = styled.div`
     border: 1px solid #666;
     border-radius: 16px;
     margin: 0 16px;
-    coler: #ccc;
+    color: #ccc;
     cursor: pointer;
 
     &:hover {
