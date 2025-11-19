@@ -17,11 +17,7 @@ const AppFooter: FC<IProps> = memo((props) => {
             "https://music.163.com/st/userbasic#/auth",
             "https://tianyin.music.163.com/#/",
             "https://music.163.com/st/ad-song",
-            "https://music.163.com/web/reward"],
-        footTopIcons: [
-            "https://music.163.com/st/ad-song",
-            "https://music.163.com/web/reward"
-        ]
+            "https://music.163.com/web/reward"]
     }
     return (
         <AppFooterWrapper>
@@ -29,13 +25,14 @@ const AppFooter: FC<IProps> = memo((props) => {
                 {
                     footTopContent.footTopText.map((text, index) => (
                     <div className="foot-link" key={index}>
-                        <div className="icon">{footTopContent.footTopIcons[index]}</div>
-                        <div className="text">{text}</div>
+                        <a href={footTopContent.footTopLinks[index]} target="_blank" rel="noopener noreferrer">
+                            <div className="icon"></div>
+                        </a>
+                            <div className="text">{text}</div>
                     </div>
                     ))
                 }
             </div>
-            <div className="foot-bottom">foot-bottom</div>
         </AppFooterWrapper>
     );
 });

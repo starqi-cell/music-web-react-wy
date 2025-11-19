@@ -11,10 +11,7 @@ import { fetchCurrentSongDataAction } from './views/player/store/player'
 
 function App() {
 
-  const dispatch=useAppDispatch()
-  useEffect(() => {
-    dispatch(fetchCurrentSongDataAction(1478968140))
-  }, [])
+
 
   return (
   <div className="App">
