@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import type { FC, ReactNode } from 'react';
 
-import { getSizeImage } from '@/utils/format-utils';
+import { getImageSize } from '@/utils/format';
 
 import { ItemWrapper } from './style';
 
@@ -19,7 +19,7 @@ const HYArtistItemV1: FC<IProps> = memo((props) => {
       {
         index < 10 && (
           <div className="image">
-            <img src={getSizeImage(info.img1v1Url, 130)} alt="" />
+            <img src={getImageSize(info.img1v1Url, 130)} alt="" />
           </div>
         )
       }

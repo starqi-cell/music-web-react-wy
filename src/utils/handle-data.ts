@@ -1,3 +1,6 @@
+// src/utils/handle-data.ts
+//  处理分类数据相关的工具函数
+
 export function handleSongsCategory(data: any) {
   // 1.获取category
   const category = data.categories;

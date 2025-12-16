@@ -1,3 +1,6 @@
+// src/utils/parse-lyric.ts
+//  解析歌词的工具函数
+
 const timeRegExp = /\[(\d{2}):(\d{2})\.(\d{2,3})\]/
 
 export interface ILyricInfo {
@@ -5,6 +8,7 @@ export interface ILyricInfo {
   content: string
 }
 
+// 解析歌词字符串，返回歌词数组 时间+内容
 export function parseLyric(lyricString: string) {
   const lineStrings = lyricString.split('\n')
 
