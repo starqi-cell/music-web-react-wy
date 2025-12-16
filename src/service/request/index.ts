@@ -6,8 +6,6 @@ import type { AxiosInstance } from 'axios'
 
 import type { RequestConfig } from './type'
 
-
-
 class AppRequest {
   instance: AxiosInstance
 

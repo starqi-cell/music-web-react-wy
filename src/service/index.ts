@@ -1,7 +1,10 @@
+// src/service/index.ts
+//  网络请求入口文件
+
 import { BASE_URL, TIME_OUT } from './config'
 import AppRequest from './request'
 
-const AppRequest = new AppRequest({
+const appRequest = new AppRequest({
   baseURL: BASE_URL,
   timeout: TIME_OUT,
   interceptors: {
@@ -11,4 +14,4 @@ const AppRequest = new AppRequest({
   }
 })
 
-export default AppRequest
+export default appRequest

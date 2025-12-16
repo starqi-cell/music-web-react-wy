@@ -1,6 +1,8 @@
+// src/service/request/type.ts
+//  封装网络请求相关类型
+
 import type { AxiosRequestConfig, AxiosResponse } from 'axios'
 
-// 针对AxiosRequestConfig配置进行扩展
 export interface Interceptors<T = AxiosResponse> {
   requestSuccessFn?: (config: AxiosRequestConfig) => AxiosRequestConfig
   requestFailureFn?: (err: any) => any

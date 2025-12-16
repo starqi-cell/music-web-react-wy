@@ -1,9 +1,15 @@
-import AppRequest from './index';
+// src/service/artist.ts
+//  歌手相关网络请求
 
+import appRequest from './index';
+
+//  获取歌手分类列表
 export function getArtistList(area: number, type: number, initial: string | number) {
+  //歌手分类列表
   let url = "/artist/list";
   let params: any = { limit: 100 };
   if (area === -1 && type === 1) {
+    //热门歌手
     url = "/top/artists";
   } else {
     if (area === -1) {
@@ -18,7 +24,7 @@ export function getArtistList(area: number, type: number, initial: string | numb
     }
   }
 
-  return AppRequest.get({
+  return appRequest.get({
     url,
     params
   })
