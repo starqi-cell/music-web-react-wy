@@ -1,47 +1,34 @@
-import React, { memo } from 'react';
-import styled from 'styled-components';
+//  src/components/theme-header-song/index.tsx
+//  歌曲列表主题头部组件
 
-const HeaderWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 5px;
-  border-bottom: 2px solid #c20c0c;
+import { memo } from 'react';
+import type { FC,ReactNode } from 'react';
+import { HeaderWrapper } from './style';
 
-  .left {
-    display: flex;
-    align-items: flex-end;
 
-    .title {
-      font-size: 20px;
-      font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif;
-    }
+interface IProps {
+    children?: ReactNode;
+    songsNums?: number;
+    playCount?: number;
+}
 
-    .count {
-      margin-bottom: 5px;
-      margin-left: 20px;
-    }
-  }
+const ThemeHeaderSong: FC<IProps> = memo((props) => {
 
-  .right {
-    .count {
-      color: #c20c0c;
-    }
-  }
-`
+  const { songsNums=100, playCount=75487 } = props;
 
-export default memo(function HYThemeHeaderSong() {
   return (
     <HeaderWrapper>
       <div className="left">
         <h3 className="title">歌曲列表</h3>
-        <div className="count">20首歌</div>
+        <div className="count">{songsNums}首歌</div>
       </div>
       <div className="right">
         <span>播放：</span>
-        <span className="count">1234</span>
+        <span className="count">{playCount}</span>
         <span>次</span>
       </div>
     </HeaderWrapper>
   )
-})
+});
+
+export default ThemeHeaderSong;

@@ -1,3 +1,6 @@
+//  src/components/radio-ranking-cover/style.ts
+//  电台排行榜封面组件样式
+
 import styled from "styled-components";
 
 export const CoverWrapper = styled.div`

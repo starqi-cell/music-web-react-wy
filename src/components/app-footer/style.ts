@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-// 图标位置配置：[正常状态坐标, Hover状态坐标]
 const iconConfig = [
     { normal: "-170px -5px", hover: "-5px -115px" },
     { normal: "-5px -170px", hover: "-60px -170px" },
@@ -18,7 +17,7 @@ export const AppFooterWrapper = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
-    .foot-top{
+    .foot{
         margin: 33px 0 0 0;
         height: 72px;
         width: 980px;
@@ -44,7 +43,6 @@ export const AppFooterWrapper = styled.div`
                 cursor: pointer;
             }
 
-            /* 循环生成每个图标的背景位置 */
             ${iconConfig.map((item, index) => `
                 &:nth-child(${index + 1}) {
                     .icon {

@@ -5,7 +5,7 @@ import { PER_PAGE_NUMBER } from '../../store/constants';
 import { getSongList } from "../../store/actionCreators";
 
 import HYThemeCover from '@/components/songs-menu-item';
-import HYPagination from '@/components/pagination';
+import AppPagination from '@/components/pagination';
 import {
   SongListWrapper
 } from "./style";
@@ -44,7 +44,7 @@ const SongsList: FC<IProps> = memo((props) => {
           })
         }
       </div>
-      <HYPagination currentPage={currentPage} 
+      <AppPagination currentPage={currentPage} 
                     total={total} 
                     pageSize={PER_PAGE_NUMBER}
                     onPageChange={onPageChange}/>

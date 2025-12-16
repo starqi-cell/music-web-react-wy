@@ -1,4 +1,7 @@
-import React,{memo} from 'react';
+//  src/components/new-album-item/index.tsx
+//  发现音乐-推荐-新碟上架单个专辑组件
+
+import { memo } from 'react';
 import type { FC,ReactNode } from 'react';
 import { AlbumItemWrapper } from './style';
 import { getImageSize } from '@/utils/format';
@@ -26,4 +29,4 @@ const NewAlbumItem: FC<IProps> = memo((props) => {
     );
 });
 
-export default memo(NewAlbumItem);
+export default NewAlbumItem;

@@ -1,3 +1,6 @@
+//  src/components/album-cover/style.ts
+//  专辑封面组件样式
+
 import styled from "styled-components";
 
 interface AlbumWrapperProps {
@@ -11,7 +14,7 @@ export const AlbumWrapper = styled.div<AlbumWrapperProps>`
 
   .album-image {
     position: relative;
-    width: ${props => props.width};
+    width: 100%;
     height: ${props => props.size};
     overflow: hidden;
     margin-top: 15px;

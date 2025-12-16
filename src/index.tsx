@@ -1,4 +1,6 @@
-import React from 'react'
+// src/index.tsx
+// 应用入口文件
+
 import ReactDOM from 'react-dom/client'
 import { HashRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
@@ -11,9 +13,6 @@ import theme from '@/assets/theme';
 import store from '@/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
-
-
-
 
 root.render((
     <Provider store={store}>

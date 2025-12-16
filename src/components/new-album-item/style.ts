@@ -1,3 +1,7 @@
+//  src/components/new-album-item/style.ts
+//  新碟上架单个专辑组件样式
+
+
 import styled from "styled-components";
 
 export const AlbumItemWrapper = styled.div`

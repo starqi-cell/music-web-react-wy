@@ -1,4 +1,7 @@
-import React, { memo } from 'react';
+//  src/components/album-cover/index.tsx
+//  专辑封面组件
+
+import { memo } from 'react';
 import type { FC, ReactNode } from 'react';
 
 import { getSizeImage } from "@/utils/format";
@@ -13,13 +16,13 @@ interface IProps {
   bgp?: string;
 }
 
-const HYAlbumCover: FC<IProps> = memo((props) => {
+const AlbumCover: FC<IProps> = memo((props) => {
   const { info, size = "100px", width = "118px", bgp = "-570px" } = props;
 
   return (
     <AlbumWrapper size={size} width={width} bgp={bgp}>
       <div className="album-image">
-        <img src={getSizeImage(info.picUrl, 150)} alt="" />
+        <img src={getSizeImage(info.picUrl, 150)} alt="专辑封面" />
         <a href="/todo" className="cover image_cover">{info.name}</a>
       </div>
       <div className="album-info">
@@ -30,4 +33,4 @@ const HYAlbumCover: FC<IProps> = memo((props) => {
   )
 });
 
-export default HYAlbumCover;
+export default AlbumCover;

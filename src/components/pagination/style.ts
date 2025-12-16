@@ -1,3 +1,6 @@
+//  src/components/pagination/style.ts
+//  分页组件样式
+
 import styled from 'styled-components';
 
 export const PaginationWrapper = styled.div`

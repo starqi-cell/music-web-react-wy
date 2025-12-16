@@ -3,8 +3,8 @@ import { shallowEqual } from 'react-redux';
 
 import { getHotAlbumsAction } from '../../store/actionCreators';
 
-import HYAlbumCover from '@/components/album-cover';
-import HYThemeHeaderNormal from '@/components/theme-header-normal';
+import AlbumCover from '@/components/album-cover';
+import ThemeHeaderNormal from '@/components/theme-header-normal';
 import {
   HotAlbumWrapper
 } from './style';
@@ -23,11 +23,11 @@ export default memo(function HYHotAlbum() {
 
   return (
     <HotAlbumWrapper>
-      <HYThemeHeaderNormal title="热门新碟" />
+      <ThemeHeaderNormal title="热门新碟" />
       <div className="album-list">
         {
           hotAlbums && hotAlbums.slice(0, 10).map((item: any, index: number) => {
-            return <HYAlbumCover size={"130px"} 
+            return <AlbumCover size={"130px"} 
                                  width={"153px"} 
                                  bgp={"-845px"}
                                  key={item.id} 

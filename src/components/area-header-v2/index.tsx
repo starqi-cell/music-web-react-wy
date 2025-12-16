@@ -1,5 +1,9 @@
-import React,{memo} from 'react';
+//  src/components/area-header-v2/index.tsx
+//  小区域头部v2
+
+import { memo } from 'react';
 import type { FC,ReactNode } from 'react';
+
 import { AreaHeaderV2Wrapper } from './style';
 
 interface IProps {
@@ -20,4 +24,4 @@ const AreaHeaderV2: FC<IProps> = memo((props) => {
     );
 });
 
-export default memo(AreaHeaderV2);
+export default AreaHeaderV2;

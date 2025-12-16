@@ -1,3 +1,6 @@
+//  src/components/theme-header-normal/style.ts
+//  通用主题头部组件样式
+
 import styled from "styled-components";
 
 export const HeaderWrapper = styled.div`

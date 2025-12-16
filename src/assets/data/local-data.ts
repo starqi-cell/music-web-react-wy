@@ -1,40 +1,37 @@
-export const footerLinks = [
-  {
-    title: '服务条款',
-    link: 'https://st.music.163.com/official-terms/service'
-  },
-  {
-    title: '隐私政策',
-    link: 'https://st.music.163.com/official-terms/privacy'
-  },
-  {
-    title: '儿童隐私政策',
-    link: 'https://st.music.163.com/official-terms/children'
-  },
-  {
-    title: '版权投诉指引',
-    link: 'https://music.163.com/st/staticdeal/complaints.html'
-  },
-  {
-    title: '意见反馈',
-    link: '#'
-  }
-]
+//  src/assets/data/local-data.ts
+//  本地数据
 
-export const footerImages = [
-  {
-    link: 'https://music.163.com/st/userbasic#/auth'
-  },
-  {
-    link: 'https://music.163.com/recruit'
-  },
-  {
-    link: 'https://music.163.com/web/reward'
-  },
-  {
-    link: 'https://music.163.com/uservideo#/plan'
-  }
-]
+// 底部数据
+export const footTopContent = [
+{
+    text: "音乐开放平台",
+    link: "https://developer.music.163.com/st/developer",
+},
+{
+    text: "云村交易所",
+    link: "https://music.163.com/st/web-sublicense/home",
+},
+{
+    text: "X StudioAI歌手",
+    link: "https://xstudio.music.163.com/",
+},
+{
+    text: "用户认证",
+    link: "https://music.163.com/st/userbasic#/auth",
+},
+{
+    text: "AI 免费写歌",
+    link: "https://tianyin.music.163.com/#/",
+},
+{
+    text: "云推歌",
+    link: "https://music.163.com/st/ad-song",
+},
+{
+    text: "赞赏",
+    link: "https://music.163.com/web/reward",
+},
+];
 
 // discover中的数据
 export const discoverMenu = [

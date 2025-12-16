@@ -1,3 +1,6 @@
+//  src/components/app-header/style.ts
+//  应用头部组件样式
+
 import styled from 'styled-components'
 
 export const HeaderWrapper = styled.div`

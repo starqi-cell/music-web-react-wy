@@ -1,3 +1,6 @@
+//  src/components/radio-recommend-cover/style.ts
+//  电台推荐封面组件样式
+
 import styled from "styled-components";
 
 export const CoverWrapper = styled.div`

@@ -1,4 +1,7 @@
-import React,{memo} from 'react';
+//  src/components/area-header-v1/index.tsx
+//  大区域头部v1
+
+import { memo } from 'react';
 import type { FC,ReactNode } from 'react';
 import { HeaderV1Wrapper } from './style';
 import { Link } from 'react-router-dom';
@@ -45,4 +48,4 @@ const AreaHeaderV1: FC<IProps> = memo((props) => {
     );
 });
 
-export default memo(AreaHeaderV1);
+export default AreaHeaderV1;

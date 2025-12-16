@@ -3,7 +3,7 @@ import { useSelector, shallowEqual } from "react-redux";
 
 import { formatMonthDay } from "@/utils/format";
 
-import HYSongOperationBar from '@/components/song-operation-bar';
+import SongOperationBar from '@/components/song-operation-bar';
 import {
   RankingHeaderWrapper
 } from './style';
@@ -35,7 +35,7 @@ const RankingHeader: FC<IProps> = memo((props) => {
           <div>最近更新：{formatMonthDay(topInfo.updateTime)}</div>
           <div className="update-f">（{"每日更新"}）</div>
         </div>
-        <HYSongOperationBar favorTitle={`(${topInfo.subscribedCount})`}
+        <SongOperationBar favorTitle={`(${topInfo.subscribedCount})`}
                             shareTitle={`(${topInfo.shareCount})`}
                             downloadTitle="下载"
                             commentTitle={`(${topInfo.commentCount})`}/>

@@ -1,4 +1,7 @@
-import React, { memo } from 'react';
+//  src/components/radio-ranking-cover/index.tsx
+//  电台排行榜封面组件
+
+import { memo } from 'react';
 import type { FC, ReactNode } from 'react';
 
 import { getSizeImage } from "@/utils/format";
@@ -10,7 +13,7 @@ interface IProps {
   radio: any;
 }
 
-const HYRadioRankingCover: FC<IProps> = memo((props) => {
+const AppRadioRankingCover: FC<IProps> = memo((props) => {
   const { radio } = props;
 
   return (
@@ -35,4 +38,4 @@ const HYRadioRankingCover: FC<IProps> = memo((props) => {
   )
 })
 
-export default HYRadioRankingCover;
+export default AppRadioRankingCover;

@@ -1,8 +1,12 @@
-import React,{memo} from 'react';
+//  src/components/songs-menu-item/index.tsx
+//  热门推荐单个组件
+
+import { memo } from 'react';
 import type { FC,ReactNode } from 'react';
+
+import { formatPlayCount,getImageSize } from '@/utils/format';
+
 import { MenuItemWrapper } from './style';
-import { formatPlayCount } from '@/utils/format';
-import { getImageSize } from '@/utils/format';
 
 interface IProps {
     children?: ReactNode;
@@ -14,19 +18,23 @@ const SongMenuItem: FC<IProps> = memo((props) => {
 
     return( 
     <MenuItemWrapper>
-        <div className='top'>
+        <div className='top' style={{ display: 'block' }}>
             <img src={getImageSize(itemData?.picUrl || itemData?.coverImgUrl, 140)} alt={itemData?.name} />
-            <div className='cover sprite_cover'>
-                <div className='info sprite_cover'>
-                    <span>
-                        <i className='sprite_icon headset'></i>
-                        <span className='count'>{formatPlayCount(itemData?.playCount)}</span>
-                    </span>
-                    <i className='sprite_icon play'></i>
+            <a href="/#">
+                <div className='cover sprite_cover'>
+                    <div className='info sprite_cover'>
+                        <span>
+                            <i className='sprite_icon headset'></i>
+                            <span className='count'>{formatPlayCount(itemData?.playCount)}</span>
+                        </span>
+                        <i className='sprite_icon play'></i>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
-        <div className='bottom'>{itemData?.name}</div>
+        <a href="/#">
+            <div className='bottom'>{itemData?.name}</div>
+        </a>
     </MenuItemWrapper>
     );
 });

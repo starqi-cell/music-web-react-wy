@@ -1,3 +1,6 @@
+//  src/components/theme-header-normal/index.tsx
+//  通用主题头部组件
+
 import React, { memo } from 'react';
 import type { FC, ReactNode } from 'react';
 import { HeaderWrapper } from "./style";
@@ -7,8 +10,8 @@ interface IProps {
   rightContent?: ReactNode;
 }
 
-const HYThemeHeaderNormal: FC<IProps> = memo((props) => {
-  const { title, rightContent } = props;
+const ThemeHeaderNormal: FC<IProps> = memo((props) => {
+  const { title="", rightContent="" } = props;
 
   return (
     <HeaderWrapper>
@@ -18,4 +21,4 @@ const HYThemeHeaderNormal: FC<IProps> = memo((props) => {
   )
 })
 
-export default HYThemeHeaderNormal;
+export default ThemeHeaderNormal;

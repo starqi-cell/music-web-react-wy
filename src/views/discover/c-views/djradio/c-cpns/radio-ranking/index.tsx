@@ -5,9 +5,9 @@ import {
   getRadios
 } from "../../store/actionCreators";
 
-import HYThemeHeaderNormal from '@/components/theme-header-normal';
-import HYRadioRankingCover from '@/components/radio-ranking-cover';
-import HYPagination from '@/components/pagination';
+import ThemeHeaderNormal from '@/components/theme-header-normal';
+import AppRadioRankingCover from '@/components/radio-ranking-cover';
+import AppPagination from '@/components/pagination';
 import {
   RankingWraper
 } from "./style";
@@ -38,15 +38,15 @@ export default memo(function HYRadioRanking() {
 
   return (
     <RankingWraper>
-      <HYThemeHeaderNormal title="电台排行榜"/>
+      <ThemeHeaderNormal title="电台排行榜"/>
       <div className="ranking-list">
         {
           radios.map((item: any, index: number) => {
-            return (<HYRadioRankingCover key={item.id} radio={item}/>)
+            return (<AppRadioRankingCover key={item.id} radio={item}/>)
           })
         }
       </div>
-      <HYPagination currentPage={currentPage} 
+      <AppPagination currentPage={currentPage} 
                     total={1000} 
                     pageSize={30} 
                     onPageChange={onPageChange}/>

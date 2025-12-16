@@ -5,8 +5,8 @@ import {
   getRadioRecommend
 } from "../../store/actionCreators";
 
-import HYThemeHeaderNormal from '@/components/theme-header-normal';
-import HYRadioRecomendCover from '@/components/radio-recommend-cover';
+import ThemeHeaderNormal from '@/components/theme-header-normal';
+import AppRadioRecomendCover from '@/components/radio-recommend-cover';
 import {
   RecommendWrapper
 } from "./style";
@@ -28,11 +28,11 @@ export default memo(function HYRadioRecommend() {
 
   return (
     <RecommendWrapper>
-      <HYThemeHeaderNormal title="优秀新电台" />
+      <ThemeHeaderNormal title="优秀新电台" />
       <div className="radio-list">
         {
           recommends.slice(0, 5).map((item: any) => {
-            return (<HYRadioRecomendCover info={item} key={item.id}/>)
+            return (<AppRadioRecomendCover info={item} key={item.id}/>)
           })
         }
       </div>

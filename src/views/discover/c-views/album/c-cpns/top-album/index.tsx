@@ -3,9 +3,9 @@ import { shallowEqual } from 'react-redux';
 
 import { getTopAlbumsAction } from '../../store/actionCreators';
 
-import HYThemeHeaderNormal from "@/components/theme-header-normal";
-import HYAlbumCover from "@/components/album-cover";
-import HYPagination from '@/components/pagination';
+import ThemeHeaderNormal from "@/components/theme-header-normal";
+import AlbumCover from "@/components/album-cover";
+import AppPagination from '@/components/pagination';
 import {
   TopAlbumWrapper
 } from './style';
@@ -32,11 +32,11 @@ export default memo(function HYTopAlbum() {
 
   return (
     <TopAlbumWrapper>
-      <HYThemeHeaderNormal title="全部新碟" />
+      <ThemeHeaderNormal title="全部新碟" />
       <div className="album-list">
         {
           topAlbums && topAlbums.map((item: any, index: number) => {
-            return <HYAlbumCover size={"130px"} 
+            return <AlbumCover size={"130px"} 
                                  width={"153px"} 
                                  bgp={"-845px"}
                                  key={item.id} 
@@ -44,7 +44,7 @@ export default memo(function HYTopAlbum() {
           })
         }
       </div>
-      <HYPagination currentPage={currentPage} 
+      <AppPagination currentPage={currentPage} 
                     total={total} 
                     pageSize={30}
                     onPageChange={onPageChange}/>

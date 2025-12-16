@@ -1,3 +1,6 @@
+//  src/components/area-header-v2/style.ts
+//  小区域头部组件样式
+
 import  styled from "styled-components";
 
 export const AreaHeaderV2Wrapper = styled.div`

@@ -1,3 +1,6 @@
+//  src/components/songs-menu-item/style.ts
+//  热门推荐单个组件样式
+
 import styled from 'styled-components'
 
 export const MenuItemWrapper = styled.div`

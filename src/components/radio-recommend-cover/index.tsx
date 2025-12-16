@@ -1,4 +1,7 @@
-import React, { memo } from 'react';
+//  src/components/radio-recommend-cover/index.tsx
+//  电台推荐封面组件
+
+import { memo } from 'react';
 import type { FC, ReactNode } from 'react';
 
 import { getSizeImage } from "@/utils/format";
@@ -10,7 +13,7 @@ interface IProps {
   info: any;
 }
 
-const HYRadioRecomendCover: FC<IProps> = memo((props) => {
+const AppRadioRecomendCover: FC<IProps> = memo((props) => {
   const { info } = props;
 
   return (
@@ -28,4 +31,4 @@ const HYRadioRecomendCover: FC<IProps> = memo((props) => {
   )
 })
 
-export default HYRadioRecomendCover;
+export default AppRadioRecomendCover;
