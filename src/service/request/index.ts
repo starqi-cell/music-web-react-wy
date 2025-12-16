@@ -1,30 +1,21 @@
+// src/service/request/index.ts
+//  封装网络请求类
+
 import axios from 'axios'
 import type { AxiosInstance } from 'axios'
-import type { HYRequestConfig } from './type'
 
-// 拦截器: 蒙版Loading/token/修改配置
+import type { RequestConfig } from './type'
 
-/**
- * 两个难点:
- *  1.拦截器进行精细控制
- *    > 全局拦截器
- *    > 实例拦截器
- *    > 单次请求拦截器
- *
- *  2.响应结果的类型处理(泛型)
- */
 
-class HYRequest {
+
+class AppRequest {
   instance: AxiosInstance
 
-  // request实例 => axios的实例
-  constructor(config: HYRequestConfig) {
+  constructor(config: RequestConfig) {
     this.instance = axios.create(config)
 
-    // 每个instance实例都添加拦截器
     this.instance.interceptors.request.use(
       (config) => {
-        // loading/token
         return config
       },
       (err) => {
@@ -40,7 +31,6 @@ class HYRequest {
       }
     )
 
-    // 针对特定的hyRequest实例添加拦截器
     this.instance.interceptors.request.use(
       config.interceptors?.requestSuccessFn as any,
       config.interceptors?.requestFailureFn
@@ -51,20 +41,16 @@ class HYRequest {
     )
   }
 
-  // 封装网络请求的方法
-  // T => IHomeData
-  request<T = any>(config: HYRequestConfig<T>) {
-    // 单次请求的成功拦截处理
+
+  request<T = any>(config: RequestConfig<T>) {
     if (config.interceptors?.requestSuccessFn) {
       config = config.interceptors.requestSuccessFn(config as any)
     }
 
-    // 返回Promise
     return new Promise<T>((resolve, reject) => {
       this.instance
         .request<any, T>(config)
         .then((res) => {
-          // 单词响应的成功拦截处理
           if (config.interceptors?.responseSuccessFn) {
             res = config.interceptors.responseSuccessFn(res)
           }
@@ -76,18 +62,18 @@ class HYRequest {
     })
   }
 
-  get<T = any>(config: HYRequestConfig<T>) {
+  get<T = any>(config: RequestConfig<T>) {
     return this.request({ ...config, method: 'GET' })
   }
-  post<T = any>(config: HYRequestConfig<T>) {
+  post<T = any>(config: RequestConfig<T>) {
     return this.request({ ...config, method: 'POST' })
   }
-  delete<T = any>(config: HYRequestConfig<T>) {
+  delete<T = any>(config: RequestConfig<T>) {
     return this.request({ ...config, method: 'DELETE' })
   }
-  patch<T = any>(config: HYRequestConfig<T>) {
+  patch<T = any>(config: RequestConfig<T>) {
     return this.request({ ...config, method: 'PATCH' })
   }
 }
 
-export default HYRequest
+export default AppRequest

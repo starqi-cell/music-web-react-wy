@@ -1,14 +1,14 @@
-import hyRequest from './index';
+import AppRequest from './index';
 
 export function getTopList() {
-  return hyRequest.get({
+  return AppRequest.get({
     url: "/toplist"
   })
 }
 
 // 获取榜单详情
 export function getRankingList(id: number) {
-  return hyRequest.get({
+  return AppRequest.get({
     url: "/playlist/detail",
     params: {
       id

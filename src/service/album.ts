@@ -1,13 +1,13 @@
-import hyRequest from './index';
+import AppRequest from './index';
 
 export function getHotAlbums() {
-  return hyRequest.get({
+  return AppRequest.get({
     url: "/album/newest"
   })
 }
 
 export function getTopAlbums(limit: number, offset: number) {
-  return hyRequest.get({
+  return AppRequest.get({
     url: "/top/album",
     params: {
       limit,

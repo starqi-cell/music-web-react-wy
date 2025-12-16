@@ -1,4 +1,4 @@
-import hyRequest from './index';
+import AppRequest from './index';
 
 export function getArtistList(area: number, type: number, initial: string | number) {
   let url = "/artist/list";
@@ -18,7 +18,7 @@ export function getArtistList(area: number, type: number, initial: string | numb
     }
   }
 
-  return hyRequest.get({
+  return AppRequest.get({
     url,
     params
   })
