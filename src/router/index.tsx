@@ -1,7 +1,9 @@
+//  src/router/index.tsx
+//  路由配置文件
+
 import React from 'react';
 import { RouteObject } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
-
 
 const Discover = React.lazy(() => import('@/views/discover'));
 const Download = React.lazy(() => import('@/views/download'));
@@ -20,42 +22,42 @@ const Album = React.lazy(() => import('@/views/discover/c-views/album'));
 const routes:RouteObject[]=[
     {
         path:'/',
-        element:<Navigate to='/discover' />
+        element:<Navigate to='/discover' replace />
     },
     {
         path:'/discover',
         element:<Discover />,
         children:[
             {
-                path:'/discover',
-                element:<Navigate to="/discover/recommend" />
-            },
-            {
-                path:'/discover/artist',
-                element:<Artist />
-            },
-            {
-                path:'/discover/djradio',
-                element:<Djradio />
-            },
-            {
-                path:'/discover/ranking',
-                element:<Ranking />
-            },
-            {
-                path:'/discover/recommend',
+                index:true,
                 element:<Recommand />
             },
             {
-                path:'/discover/songs',
+                path:'artist',
+                element:<Artist />
+            },
+            {
+                path:'djradio',
+                element:<Djradio />
+            },
+            {
+                path:'ranking',
+                element:<Ranking />
+            },
+            {
+                path:'recommend',
+                element:<Recommand />
+            },
+            {
+                path:'songs',
                 element:<Songs />
             },
             {
-                path:'/discover/album',
+                path:'album',
                 element:<Album />
             },
             {
-                path:'/discover/player',
+                path:'player',
                 element:<Player />
             },
             {
