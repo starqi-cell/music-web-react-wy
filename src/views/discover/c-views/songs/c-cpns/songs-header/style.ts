@@ -1,3 +1,6 @@
+// src/views/discover/c-views/songs/c-cpns/songs-header/style.ts
+//  歌单页面头部组件样式文件
+
 import styled from 'styled-components';
 
 export const HeaderWrapper = styled.div`

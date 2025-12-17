@@ -1,4 +1,7 @@
-import React,{memo} from 'react';
+// src/views/mine/index.tsx
+//  我的页面组件
+
+import { memo } from 'react';
 import type { FC,ReactNode } from 'react';
 
 import { MineWrapper } from './style';
@@ -20,4 +23,4 @@ const Mine: FC<IProps> = memo((props) => {
   );
 });
 
-export default memo(Mine);
+export default Mine;

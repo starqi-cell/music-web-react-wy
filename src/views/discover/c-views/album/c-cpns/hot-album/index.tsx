@@ -1,4 +1,7 @@
-import React, { memo, useEffect } from 'react';
+// src/views/discover/c-views/album/c-cpns/hot-album/index.tsx
+//  热门新碟组件
+
+import { memo, useEffect } from 'react';
 import { shallowEqual } from 'react-redux';
 
 import { getHotAlbumsAction } from '../../store/actionCreators';

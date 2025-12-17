@@ -1,5 +1,8 @@
-import React, { FC,ReactNode,useState, memo } from 'react';
-import { useSelector, shallowEqual } from 'react-redux';
+// src/views/discover/c-views/songs/c-cpns/songs-header/index.tsx
+//  歌单页面头部组件
+
+import { FC,ReactNode,useState, memo } from 'react';
+import { shallowEqual } from 'react-redux';
 
 import SongsCategory from '../songs-category'
 import {
@@ -15,10 +18,7 @@ interface IProps {
 }
 
 const SongsHeader: FC<IProps> = memo((props) => {
-  // hooks
   const [showCategory, setShowCategory] = useState(false);
-
-  // redux
   const { currentCategory } = useAppSelector(state => ({
     currentCategory: state.songs.currentCategory
   }), shallowEqual);
@@ -27,7 +27,7 @@ const SongsHeader: FC<IProps> = memo((props) => {
     <HeaderWrapper>
       <HeaderLeft>
         <span className="title">{currentCategory}</span>
-        <button className="select" onClick={e => setShowCategory(!showCategory)}>
+        <button className="select" onClick={() => setShowCategory(!showCategory)}>
           <span>选择分类</span>
           <i className="sprite_icon2"></i>
         </button>

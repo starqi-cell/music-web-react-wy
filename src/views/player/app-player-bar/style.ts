@@ -1,15 +1,7 @@
-import styled from 'styled-components'
+// src/views/player/app-player-bar/style.ts
+//  底部播放器样式文件
 
-/* background-position: ${(props) => {
-  switch (props.sequence) {
-    case 1:
-      return '-66px -248px'
-    case 2:
-      return '-66px -344px'
-    default:
-      return '-3px -344px'
-  }
-}}; */
+import styled from 'styled-components'
 
 export const BarWrapper = styled.div`
   position: fixed;

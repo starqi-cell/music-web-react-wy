@@ -1,3 +1,6 @@
+// src/views/discover/c-views/recommend/c-cpns/settle-singer/style.ts
+//  入驻歌手组件样式文件
+
 import styled from "styled-components";
 
 export const SettleSingerWrapper = styled.div`

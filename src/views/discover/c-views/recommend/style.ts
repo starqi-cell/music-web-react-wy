@@ -1,3 +1,6 @@
+//  src/views/discover/c-views/recommend/style.ts
+//  推荐页面样式文件
+
 import styled from "styled-components";
 
 export const RecommendWrapper = styled.div`

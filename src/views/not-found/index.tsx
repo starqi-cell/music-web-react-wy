@@ -1,4 +1,6 @@
-import React,{memo} from 'react';
+// src/views/not-found/index.tsx
+
+import { memo } from 'react';
 import type { FC,ReactNode } from 'react';
 import { NotFoundWrapper } from './style';
 

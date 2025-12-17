@@ -1,4 +1,7 @@
-import React,{memo} from 'react';
+// src/views/focus/index.tsx
+//  关注页面组件
+
+import { memo } from 'react';
 import type { FC,ReactNode } from 'react';
 import { FocusWrapper } from './style';
 
@@ -18,4 +21,4 @@ const Focus: FC<IProps> = memo((props) => {
   )
 });
 
-export default memo(Focus);
+export default Focus;

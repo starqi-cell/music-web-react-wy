@@ -1,3 +1,6 @@
+// src/views/discover/c-views/djradio/store/actionCreators.ts
+// 电台页面store action创建函数文件
+
 import { getDjRadioCatelist, getDjRadioRecommend, getDjRadios } from '@/service/djradio';
 import { changeCategory, changeCurrentId, changeRecommends, changeRadios } from './reducer';
 import { AppDispatch } from '@/store';

@@ -1,6 +1,7 @@
 //  src/components/app-footer/index.tsx
 //  应用底部组件
 
+import { memo } from 'react';
 import type { FC,ReactNode } from 'react';
 
 import { footTopContent } from '@/assets/data/local-data';
@@ -11,7 +12,7 @@ interface IProps {
     children?: ReactNode;
 }
 
-const AppFooter: FC<IProps> = (props) => {
+const AppFooter: FC<IProps> = memo((props) => {
 
     function showItem(item:any){
         return(
@@ -34,6 +35,6 @@ const AppFooter: FC<IProps> = (props) => {
             </div>
         </AppFooterWrapper>
     );
-};
+});
 
 export default AppFooter;

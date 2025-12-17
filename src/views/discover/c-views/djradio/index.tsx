@@ -1,23 +1,27 @@
-import React, { memo } from 'react';
+// src/views/discover/c-views/djradio/index.tsx
+// 电台页面
+
+import { memo } from 'react';
 import type { FC, ReactNode } from 'react';
 
-import HYRadioCategory from './c-cpns/radio-category';
-import HYRadioRecommend from './c-cpns/radio-recommend';
-import HYRadioRanking from './c-cpns/radio-ranking';
+import RadioCategory from './c-cpns/radio-category';
+import RadioRecommend from './c-cpns/radio-recommend';
+import RadioRanking from './c-cpns/radio-ranking';
 import { DjRadioWrapper } from "./style";
 
 interface IProps {
   children?: ReactNode;
 }
 
-const HYDjradio: FC<IProps> = memo(() => {
+const Djradio: FC<IProps> = memo(() => {
+
   return (
     <DjRadioWrapper className="wrap-v2">
-      <HYRadioCategory />
-      <HYRadioRecommend />
-      <HYRadioRanking />
+      <RadioCategory />
+      <RadioRecommend />
+      <RadioRanking />
     </DjRadioWrapper>
   )
 });
 
-export default HYDjradio;
+export default Djradio;

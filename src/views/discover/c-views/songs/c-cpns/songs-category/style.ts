@@ -1,3 +1,6 @@
+// src/views/discover/c-views/songs/c-cpns/songs-category/style.ts
+// 歌单页面分类组件样式文件
+
 import styled from "styled-components";
 
 export const CategoryWrapper = styled.div`

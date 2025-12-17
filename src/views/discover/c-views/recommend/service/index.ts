@@ -1,5 +1,16 @@
+//  src/views/discover/c-views/recommend/service/index.ts
+//  推荐页面相关网络请求
+
 import AppRequest from "@/service";
-import { url } from "inspector";
+
+export function getTopRadios(limit=5){
+    return AppRequest.get({
+        url:"/dj/toplist",
+        params:{
+            limit: limit+1
+        }
+    });
+}
 
 export function getBanners(){
     return AppRequest.get({

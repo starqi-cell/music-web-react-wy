@@ -1,3 +1,6 @@
+// src/views/discover/c-views/songs/store/actionCreators.tsx
+//  歌单页面store action创建函数文件
+
 import { PER_PAGE_NUMBER } from './constants';
 import {
   getSongCategory,

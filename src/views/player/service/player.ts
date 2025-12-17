@@ -1,3 +1,6 @@
+// src/views/player/service/player.ts
+//  播放器页面服务文件                                   
+
 import AppRequest from '@/service'
 
 export function getSongDetail(ids: number) {

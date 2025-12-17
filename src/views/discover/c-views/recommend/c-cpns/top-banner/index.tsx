@@ -1,15 +1,16 @@
-import { useAppSelector } from '@/store';
-import React,{memo, useRef,useState } from 'react';
+// src/views/discover/c-views/recommend/c-cpns/top-banner/index.tsx
+//  推荐页面顶部轮播图组件
+
+import { memo, useRef,useState } from 'react';
 import type { FC,ReactNode } from 'react';
 import { shallowEqual } from 'react-redux';
 import { Carousel } from 'antd';
 import type { CarouselRef } from 'antd/es/carousel';
-import { BannerWrapper } from './style';
-import { BannerLeft } from './style';
-import { BannerRight } from './style';
-import { BannerControl } from './style';
 import classNames from 'classnames';
 
+import { useAppSelector } from '@/store';
+
+import { BannerWrapper,BannerLeft,BannerRight,BannerControl } from './style';
 
 interface IProps {
     children?: ReactNode;
@@ -18,8 +19,6 @@ interface IProps {
 const TopBanner: FC<IProps> = memo((props) => {
     const bannerRef = useRef<CarouselRef>(null);
     const [currentIndex, setCurrentIndex] = useState(0);
-
-
     const { banner } = useAppSelector((state) => ({
         banner: state.recommend.banner
     }), shallowEqual);
@@ -33,8 +32,12 @@ const TopBanner: FC<IProps> = memo((props) => {
     }
 
     function handleBeforeChange(from: number, to: number){
-            setCurrentIndex(to);
+        setCurrentIndex(to);
+    }
 
+    function handleDotClick(index: number){
+        setCurrentIndex(index);
+        bannerRef.current?.goTo(index);
     }
 
     let bgImageUrl =  banner[currentIndex]?.imageUrl;
@@ -45,7 +48,6 @@ const TopBanner: FC<IProps> = memo((props) => {
     return (
         <BannerWrapper style={{
             background: `url(${bgImageUrl}) center center / 6000px`
-        
         }} >
             <div className="banner wrap-v2">
                 <BannerLeft>
@@ -63,7 +65,7 @@ const TopBanner: FC<IProps> = memo((props) => {
                     <div className="dots">
                         {banner.map((item,index)=>(
                             <li key={item.imageUrl} >
-                                <span className={classNames('item', { active: index === currentIndex })}></span>
+                                <span className={classNames('item', { active: index === currentIndex })} onClick={() => handleDotClick(index)}></span>
                             </li>
                         ))
 
@@ -71,7 +73,6 @@ const TopBanner: FC<IProps> = memo((props) => {
                     </div>
                 </BannerLeft>
                 <BannerRight>
-
                 </BannerRight>
                 <BannerControl>
                     <button className='btn left' onClick={handleLeftChange}></button>
@@ -82,4 +83,4 @@ const TopBanner: FC<IProps> = memo((props) => {
     );
 });
 
-export default memo(TopBanner);
+export default TopBanner;

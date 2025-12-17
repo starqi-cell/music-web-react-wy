@@ -1,4 +1,7 @@
-import React,{memo} from 'react';
+// src/views/user-login/index.tsx
+//  用户登录页面组件
+
+import { memo } from 'react';
 import type { FC,ReactNode } from 'react';
 import { UserLoginWrapper } from './style';
 

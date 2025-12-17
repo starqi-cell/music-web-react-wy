@@ -1,47 +1,52 @@
-import React, { useEffect, useRef, memo } from 'react';
+// src/views/discover/c-views/djradio/c-cpns/radio-category/index.tsx
+// 电台分类组件
+
+import { useEffect, useRef, memo } from 'react';
+import type { FC,ReactNode } from 'react';
 import { shallowEqual } from 'react-redux';
 import classnames from 'classnames';
+import { Carousel } from 'antd';
+
+import { useAppDispatch, useAppSelector } from '@/store';
 
 import {
   getRadioCategories,
   changeCurrentIdAction
 } from "../../store/actionCreators";
-
-import { Carousel } from 'antd';
 import {
   CategoryWrapper,
   CategoryContent,
   CategoryItemImage
 } from "./style";
-import { useAppDispatch, useAppSelector } from '@/store';
 
 const PAGE_SIZE = 16;
 
-export default memo(function HYRadioCategory() {
-  // redux
+interface IProps {
+    children?: ReactNode;
+}
+
+const RadioCategory: FC<IProps> = memo((props) => {
+
   const dispatch = useAppDispatch();
   const { categories, currentId } = useAppSelector(state => ({
     categories: state.djradio.categories,
     currentId: state.djradio.currentId
   }), shallowEqual);
 
-  // data handle
-  const page = Math.ceil(categories.length / PAGE_SIZE) || 1;
-
-  // hooks
   useEffect(() => {
     dispatch(getRadioCategories());
   }, [dispatch]);
+
+  const page = Math.ceil(categories.length / PAGE_SIZE) || 1;  
   const carouselRef = useRef<any>(null);
 
-  // handle function
   function getSize(index: number) {
     return index * PAGE_SIZE > categories.length ? index * PAGE_SIZE : categories.length;
   }
 
   return (
     <CategoryWrapper>
-      <div className="arrow arrow-left" onClick={e => carouselRef.current.prev()}></div>
+      <div className="arrow arrow-left" onClick={() => carouselRef.current.prev()}></div>
       <CategoryContent>
         <Carousel dots={{className: "dots"}} ref={carouselRef}>
           {
@@ -66,7 +71,9 @@ export default memo(function HYRadioCategory() {
           }
         </Carousel>
       </CategoryContent>
-      <div className="arrow arrow-right" onClick={e => carouselRef.current.next()}></div>
+      <div className="arrow arrow-right" onClick={() => carouselRef.current.next()}></div>
     </CategoryWrapper>
   )
-})
+});
+
+export default RadioCategory;

@@ -1,3 +1,6 @@
+// src/views/discover/c-views/album/store/reducer.tsx
+// 专辑页面store reducer文件
+
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface AlbumState {

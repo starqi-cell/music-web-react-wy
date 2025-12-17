@@ -1,8 +1,12 @@
-import React,{memo} from 'react';
+// src/views/discover/c-views/recommend/c-cpns/hot-anchor/index.tsx
+//  热门主播组件
+
+import { memo } from 'react';
 import type { FC,ReactNode } from 'react';
-import { HotAnchorWrapper } from './style'
 import AreaHeaderV2 from '@/components/area-header-v2';
-import { hotRadios } from '@/assets/data/local-data';
+import { useAppSelector,appShallowEqual } from '@/store';
+import { HotAnchorWrapper } from './style'
+
 
 interface IProps {
     children?: ReactNode;
@@ -10,9 +14,14 @@ interface IProps {
 
 const HotAnchor: FC<IProps> = memo((props) => {
 
+    const { hotRadios=[] } = useAppSelector((state)=>({
+        hotRadios:state.recommend.topRadios
+    }),appShallowEqual);
+
+
     return (
         <HotAnchorWrapper>
-            <AreaHeaderV2 title="热门主播"/>
+            <AreaHeaderV2 title="热门电台"/>
             <div className="anchors">
                 {
                     hotRadios.map(item=>{
@@ -23,7 +32,7 @@ const HotAnchor: FC<IProps> = memo((props) => {
                                 </a>
                                 <div className="info">
                                     <div className="name">{item.name}</div>
-                                    <div className="desc">{item.position}</div>
+                                    <div className="desc">{item.rcmdtext}</div>
                                 </div>
                             </div>
                         )
@@ -34,4 +43,4 @@ const HotAnchor: FC<IProps> = memo((props) => {
     );
 });
 
-export default memo(HotAnchor);
+export default HotAnchor;

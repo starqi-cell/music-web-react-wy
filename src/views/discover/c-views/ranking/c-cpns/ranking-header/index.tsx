@@ -1,5 +1,8 @@
-import React, {FC,ReactNode,memo} from 'react';
-import { useSelector, shallowEqual } from "react-redux";
+// src/views/discover/c-views/ranking/c-cpns/ranking-header/index.tsx
+//  排行榜头部组件
+
+import { FC,ReactNode,memo } from 'react';
+import { shallowEqual } from "react-redux";
 
 import { formatMonthDay } from "@/utils/format";
 
@@ -14,9 +17,8 @@ interface IProps {
     children?: ReactNode
 }
 
-
 const RankingHeader: FC<IProps> = memo((props) => {
-  // redux
+
   const state = useAppSelector((state) => ({
     playList: state.ranking.playList,
   }), shallowEqual);
@@ -44,4 +46,4 @@ const RankingHeader: FC<IProps> = memo((props) => {
   )
 })
 
-export default memo(RankingHeader)
+export default RankingHeader;

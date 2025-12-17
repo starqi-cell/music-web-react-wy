@@ -1,4 +1,7 @@
-import React,{memo} from 'react';
+// src/views/discover/c-views/recommend/c-cpns/top-ranking-item/index.tsx
+// 榜单项组件
+
+import { memo } from 'react';
 import type { FC,ReactNode } from 'react';
 import { TopRankingItemWrapper } from './style';
 import { getImageSize } from '@/utils/format';
@@ -13,8 +16,8 @@ interface IProps {
 const TopRankingItem: FC<IProps> = memo((props) => {
 
     const { itemData } = props;
-
     const { tracks=[] } = itemData; 
+    
     const dispatch = useAppDispatch();
 
     function handlePlaySong(id?: number) {

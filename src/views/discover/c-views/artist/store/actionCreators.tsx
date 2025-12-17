@@ -1,3 +1,6 @@
+// src/views/discover/c-views/artist/store/actionCreators.tsx
+// 歌手页面store action创建函数文件
+
 import { getArtistList } from '@/service/artist';
 import { changeArtistList, changeCurrentArea, changeCurrentType } from './reducer';
 import { AppDispatch } from '@/store';

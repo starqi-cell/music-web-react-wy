@@ -9,7 +9,7 @@ interface IProps {
   children?: ReactNode;
 }
 
-const HYArtist: FC<IProps> = memo(() => {
+const Artist: FC<IProps> = memo(() => {
   return (
     <HYArtistWrapper>
       <div className="content wrap-v2">
@@ -20,4 +20,4 @@ const HYArtist: FC<IProps> = memo(() => {
   )
 });
 
-export default HYArtist;
+export default Artist;

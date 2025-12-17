@@ -1,3 +1,6 @@
+// src/views/discover/c-views/recommend/c-cpns/new-album/style.ts
+//  新碟上架组件样式文件
+
 import styled from "styled-components";
 
 export const NewAlbumWrapper = styled.div`

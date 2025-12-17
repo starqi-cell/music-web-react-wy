@@ -31,3 +31,11 @@ export const formatMinuteSecond = (time: number) => {
   const second = date.getSeconds();
   return ("00" + minute).slice(-2) + ":" + ("00" + second).slice(-2);
 }
+
+export const formatString = (str: string, length: number=15) => {
+  if (str.length > length) {
+    return str.slice(0, length) + '...';
+  } else {
+    return str;
+  }
+}

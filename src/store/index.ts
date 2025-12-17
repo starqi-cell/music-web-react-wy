@@ -6,7 +6,7 @@ import { TypedUseSelectorHook, useSelector, useDispatch,shallowEqual } from "rea
 
 import recommendReducer from "@/views/discover/c-views/recommend/store/recommand";
 import playerReducer from "@/views/player/store/player";
-import rankingReducer from "@/views/discover/c-views/ranking/store/reducer";
+import rankingReducer from "@/views/discover/c-views/ranking/store/ranking";
 import songsReducer from "@/views/discover/c-views/songs/store/reducer";
 import artistReducer from "@/views/discover/c-views/artist/store/reducer";
 import albumReducer from "@/views/discover/c-views/album/store/reducer";

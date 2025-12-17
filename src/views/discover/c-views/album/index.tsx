@@ -1,4 +1,7 @@
-import React, { memo } from 'react';
+// src/views/discover/c-views/album/index.tsx
+// 专辑页面组件
+
+import { memo } from 'react';
 import type { FC, ReactNode } from 'react';
 
 import HYHotAlbum from './c-cpns/hot-album';
@@ -9,7 +12,7 @@ interface IProps {
   children?: ReactNode;
 }
 
-const HYAlbum: FC<IProps> = memo(() => {
+const Album: FC<IProps> = memo(() => {
   return (
     <AblumWrapper className="wrap-v2">
       <HYHotAlbum/>
@@ -18,4 +21,4 @@ const HYAlbum: FC<IProps> = memo(() => {
   )
 });
 
-export default HYAlbum;
+export default Album;

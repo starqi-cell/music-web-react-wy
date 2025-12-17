@@ -1,4 +1,30 @@
+// src/views/discover/c-views/ranking/store/reducer.ts
+//  排行榜页面的reducer
+
 import { createSlice } from '@reduxjs/toolkit';
+
+import { 
+  getTopList,
+  getRankingList
+} from "@/service/ranking";
+
+export const getTops = () => {
+  return (dispatch: any) => {
+    getTopList().then(res => {
+      dispatch(changeTopList(res.list));
+    })
+  }
+}
+
+export const getRanking = (id: number) => {
+  return (dispatch: any) => {
+    getRankingList(id).then((res: any) => {
+      dispatch(changePlayList(res.playlist))
+    })
+  }
+}
+
+
 
 interface IRankingState {
   topList: any[];

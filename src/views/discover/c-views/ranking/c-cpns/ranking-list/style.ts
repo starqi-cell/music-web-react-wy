@@ -1,3 +1,6 @@
+// src/views/discover/c-views/ranking/c-cpns/ranking-list/style.ts
+// 排行榜主列表组件样式文件
+
 import styled from 'styled-components';
 
 export const RankingListWrapper = styled.div`

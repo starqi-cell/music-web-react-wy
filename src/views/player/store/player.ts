@@ -1,11 +1,15 @@
-import { ILyricInfo, parseLyric } from '@/utils/parse-lyric'
+// src/views/player/store/player.ts
+//  播放器页面store文件
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { getSongDetail, getSongLyric, getSongPlayUrl } from '@/views/player/service/player'
-import type { RootState } from '@/store'
+
+import { ILyricInfo, parseLyric } from '@/utils/parse-lyric'
 import { getPlayerUrl } from '@/utils/handle-player'
+import type { RootState } from '@/store'
 
+import { getSongDetail, getSongLyric, getSongPlayUrl } from '../service/player'
 
-export const fetchCurrentSongDataAction = createAsyncThunk<void,number,{ state: RootState }
+// 根据歌曲id获取当前歌曲信息，并更新相关数据
+export const fetchCurrentSongDataAction = createAsyncThunk<void,number,{ state: RootState } 
 >
   ('currentSong', async (id:number, { dispatch, getState }) => {
   if (!id) return
@@ -30,6 +34,7 @@ export const fetchCurrentSongDataAction = createAsyncThunk<void,number,{ state: 
   await fetchSongUrlAndDispatch(currentSong.id, dispatch)
 })
 
+// 切换播放歌曲（随机/上一首/下一首）
 export const changePlaySongAction = createAsyncThunk<void,boolean,{ state: RootState }
 >
 ('playsong', async (isNext, { dispatch, getState }) => {
@@ -38,11 +43,13 @@ export const changePlaySongAction = createAsyncThunk<void,boolean,{ state: RootS
   if (!length) return
 
   let newIndex = currentSongIndex
+  //playMode = 1 随机播放
   if (playMode === 1 && length > 1) {
     do {
       newIndex = Math.floor(Math.random() * length)
     } while (newIndex === currentSongIndex)
   } else {
+    // isnext = true 下一首 false 上一首
     newIndex = isNext ? newIndex + 1 : newIndex - 1
     if (newIndex >= length) newIndex = 0
     if (newIndex < 0) newIndex = length - 1
@@ -55,6 +62,31 @@ export const changePlaySongAction = createAsyncThunk<void,boolean,{ state: RootS
   await fetchSongLyricAndDispatch(currentSong.id, dispatch)
   await fetchSongUrlAndDispatch(currentSong.id, dispatch)
 })
+
+// 获取歌词并更新到store
+async function fetchSongLyricAndDispatch(id: number, dispatch: any) {
+  try {
+    const res = await getSongLyric(id);
+    const lyricString = res?.lrc?.lyric ?? ''
+    const lyrics = lyricString ? parseLyric(lyricString) : []
+    dispatch(changeLyricsAction(lyrics))
+    dispatch(changeLyricIndexAction(-1))
+  } catch (error) {
+    dispatch(changeLyricsAction([]))
+    dispatch(changeLyricIndexAction(-1))
+  }
+}
+
+// 获取歌曲播放地址并更新到store
+async function fetchSongUrlAndDispatch(id: number, dispatch: any) {
+  try {
+    const res = await getSongPlayUrl(id)
+    const url = res?.data?.[0]?.url ?? ''
+    dispatch(changeCurrentSongUrlAction(url || getPlayerUrl(id)))
+  } catch (error) {
+    dispatch(changeCurrentSongUrlAction(getPlayerUrl(id)))
+  }
+}
 
 interface IPlayState {
   currentSong: any
@@ -112,30 +144,5 @@ export const {
   changeCurrentSongIndexAction,
   changePlayModeAction
 } = playerSlice.actions
+
 export default playerSlice.reducer
-
-async function fetchSongLyricAndDispatch(id: number, dispatch: any) {
-  try {
-    const res = await getSongLyric(id);
-    
-    const lyricString = res?.lrc?.lyric ?? ''
-    const lyrics = lyricString ? parseLyric(lyricString) : []
-
-    dispatch(changeLyricsAction(lyrics))
-    dispatch(changeLyricIndexAction(-1))
-    
-  } catch (error) {
-    dispatch(changeLyricsAction([]))
-    dispatch(changeLyricIndexAction(-1))
-  }
-}
-
-async function fetchSongUrlAndDispatch(id: number, dispatch: any) {
-  try {
-    const res = await getSongPlayUrl(id)
-    const url = res?.data?.[0]?.url ?? ''
-    dispatch(changeCurrentSongUrlAction(url || getPlayerUrl(id)))
-  } catch (error) {
-    dispatch(changeCurrentSongUrlAction(getPlayerUrl(id)))
-  }
-}

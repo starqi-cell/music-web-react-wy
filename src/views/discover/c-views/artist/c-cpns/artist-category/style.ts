@@ -1,3 +1,6 @@
+// src/views/discover/c-views/artist/c-cpns/artist-category/style.ts
+// 歌手分类组件样式文件
+
 import styled from 'styled-components';
 
 export const CategoryWrapper = styled.div`
@@ -53,4 +56,5 @@ export const CategoryItem = styled.div`
     &:hover {
       text-decoration: underline;
     }
+  }
 `

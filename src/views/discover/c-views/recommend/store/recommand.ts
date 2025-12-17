@@ -1,5 +1,14 @@
+//  src/views/discover/c-views/recommend/store/recommand.ts
+//  推荐页面redux相关代码
+
 import { createSlice,createAsyncThunk } from "@reduxjs/toolkit";
-import { getBanners, getSettleSinger, getHotRecommend, getNewAlbum,getPlayListDetail } from "../service";
+import { getTopRadios,getBanners, getSettleSinger, getHotRecommend, getNewAlbum,getPlayListDetail } from "../service";
+
+export const fetchTopRadiosAction=createAsyncThunk("topRadios", async (arg,{dispatch}) => {
+    const response=await getTopRadios(5);
+    dispatch(changeTopRadiosAction(response.toplist));
+    console.log(response);
+});
 
 export const fetchBannerDataAction = createAsyncThunk("banners", async (arg,{dispatch}) => {
     const response = await getBanners();
@@ -38,13 +47,15 @@ interface IRecommendState {
     newAlbums: any[];
     rankings: any[];
     settleSingers: any[];
+    topRadios: any[];
 }
 const initialState: IRecommendState = {
     banner: [],
     hotRecommends: [],
     newAlbums: [],
     rankings: [],
-    settleSingers: []
+    settleSingers: [],
+    topRadios:[]
 };
 
 
@@ -66,10 +77,21 @@ export const recommendSlice = createSlice({
         },
         changeSettleSingerAction(state,{ payload }){
             state.settleSingers=payload;
+        },
+        changeTopRadiosAction(state, { payload }) {
+            state.topRadios = payload;
         }
+
     }
 });
 
-export const { changeBannerAction, changeHotRecommendAction, changeNewAlbumAction, changePlayListDetailAction, changeSettleSingerAction } = recommendSlice.actions;
+export const { 
+    changeBannerAction, 
+    changeHotRecommendAction, 
+    changeNewAlbumAction, 
+    changePlayListDetailAction, 
+    changeSettleSingerAction, 
+    changeTopRadiosAction 
+} = recommendSlice.actions;
 export default recommendSlice.reducer;
 

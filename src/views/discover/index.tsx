@@ -1,6 +1,10 @@
-import React,{ memo,Suspense } from 'react';
+// src/views/discover/index.tsx
+//  发现音乐页面
+
+import { memo,Suspense } from 'react';
 import type { FC,ReactNode } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+
 import NavBar from './c-cpns/nva-bar';
 
 interface IProps {

@@ -1,7 +1,10 @@
-import React, { FC,ReactNode,useEffect, memo } from 'react';
+// src/views/discover/c-views/ranking/index.tsx
+//  排行榜页面组件
+
+import { FC,ReactNode,useEffect, memo } from 'react';
 import { useDispatch } from "react-redux";
 
-import { getTops } from "./store/actionCreators";
+import { getTops } from './store/ranking';
 
 import TopRanking from "./c-cpns/top-ranking";
 import RankingHeader from './c-cpns/ranking-header';
@@ -38,4 +41,4 @@ const Ranking: FC<IProps> = memo((props) => {
   )
 })
 
-export default memo(Ranking);
+export default Ranking;

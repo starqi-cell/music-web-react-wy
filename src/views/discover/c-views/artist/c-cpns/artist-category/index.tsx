@@ -1,4 +1,7 @@
-import React, { memo } from 'react';
+// src/views/discover/c-views/artist/c-cpns/artist-category/index.tsx
+// 歌手分类组件
+
+import { memo } from 'react';
 import { shallowEqual } from 'react-redux';
 import classNames from 'classnames';
 
@@ -10,20 +13,17 @@ import { useAppDispatch, useAppSelector } from '@/store';
 
 export default memo(function HYArtistCategory() {
 
-  // redux hooks
   const {currentArea, currentType} = useAppSelector(state => ({
     currentArea: state.artist.currentArea,
     currentType: state.artist.currentType
   }), shallowEqual);
   const dispatch = useAppDispatch();
 
-  // handle function
   const selectArtist = (area: number, type: { name: string, type: number }) => {
     dispatch(changeCurrentAreaAction(area));
     dispatch(changeCurrentTypeAction(type));
   }
 
-  // render jsx
   const renderArtist = (artists: any[], area: number) => {
     return (
       <div>

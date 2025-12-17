@@ -1,3 +1,6 @@
+// src/views/focus/style.ts
+//  关注页面样式文件
+
 import styled from 'styled-components';
 
 export const FocusWrapper = styled.div`

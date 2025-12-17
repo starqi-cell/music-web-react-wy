@@ -4,7 +4,7 @@
 import { memo } from 'react';
 import type { FC, ReactNode } from 'react';
 
-import { getSizeImage } from "@/utils/format";
+import { getImageSize } from "@/utils/format";
 
 import { AlbumWrapper } from './style';
 
@@ -22,7 +22,7 @@ const AlbumCover: FC<IProps> = memo((props) => {
   return (
     <AlbumWrapper size={size} width={width} bgp={bgp}>
       <div className="album-image">
-        <img src={getSizeImage(info.picUrl, 150)} alt="专辑封面" />
+        <img src={getImageSize(info.picUrl, 150)} alt="专辑封面" />
         <a href="/todo" className="cover image_cover">{info.name}</a>
       </div>
       <div className="album-info">

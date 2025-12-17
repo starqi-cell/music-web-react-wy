@@ -1,4 +1,7 @@
-import React, { memo, useEffect, useState } from 'react';
+// src/views/discover/c-views/album/c-cpns/top-album/index.tsx
+//  全部新碟组件
+
+import { memo, useEffect, useState } from 'react';
 import { shallowEqual } from 'react-redux';
 
 import { getTopAlbumsAction } from '../../store/actionCreators';

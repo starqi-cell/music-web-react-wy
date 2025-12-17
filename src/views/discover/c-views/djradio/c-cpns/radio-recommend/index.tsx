@@ -1,4 +1,7 @@
-import React, { useEffect, memo } from 'react';
+// src/views/discover/c-views/djradio/c-cpns/radio-recommend/index.tsx
+// 优秀新电台组件
+
+import { useEffect, memo } from 'react';
 import { shallowEqual } from 'react-redux';
 
 import { 

@@ -4,7 +4,7 @@
 import { memo } from 'react';
 import type { FC, ReactNode } from 'react';
 
-import { getSizeImage } from "@/utils/format";
+import { getImageSize } from "@/utils/format";
 
 import { CoverWrapper } from "./style";
 
@@ -19,7 +19,7 @@ const AppRadioRankingCover: FC<IProps> = memo((props) => {
   return (
     <CoverWrapper>
       <a href="/#">
-        <img src={getSizeImage(radio.picUrl, 120)} alt="" />
+        <img src={getImageSize(radio.picUrl, 120)} alt="" />
       </a>
       <div className="info">
         <div className="title">

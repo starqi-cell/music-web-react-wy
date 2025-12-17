@@ -1,3 +1,6 @@
+// src/views/discover/c-views/songs/store/reducer.tsx
+//  歌单页面store reducer文件
+
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 

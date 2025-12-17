@@ -1,3 +1,6 @@
+// src/views/user-login/style.ts
+//  用户登录页面样式文件
+
 import styled from "styled-components";
 
 export const UserLoginWrapper = styled.div`

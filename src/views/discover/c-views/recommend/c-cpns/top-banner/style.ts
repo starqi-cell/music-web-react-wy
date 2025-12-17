@@ -1,8 +1,8 @@
+// src/views/discover/c-views/recommend/c-cpns/top-banner/style.ts
+//  轮播图组件样式文件
+
 import styled from 'styled-components'
 
-interface BannerProps {
-  bgImage: string
-}
 export const BannerWrapper = styled.div`
   background-size: 6000px auto !important;
   transition: background-image 0.5s ease-in-out;

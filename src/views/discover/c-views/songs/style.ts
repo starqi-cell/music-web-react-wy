@@ -1,3 +1,6 @@
+// src/views/discover/c-views/songs/style.ts
+//  歌单页面样式文件
+
 import styled from 'styled-components';
 
 export const SongsWrapper = styled.div`

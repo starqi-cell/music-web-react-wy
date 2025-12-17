@@ -1,4 +1,8 @@
-import React,{memo} from 'react';
+// src/views/discover/c-cpns/nva-bar/index.tsx
+//  发现音乐导航栏组件
+
+
+import { memo } from 'react';
 import type { FC,ReactNode } from 'react';
 import { NavLink } from 'react-router-dom';
 import { NavBarWrapper } from './style';
@@ -29,4 +33,4 @@ const NavBar: FC<IProps> = memo((props) => {
 
 
 
-export default memo(NavBar);
+export default NavBar;

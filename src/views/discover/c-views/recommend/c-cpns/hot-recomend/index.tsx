@@ -1,4 +1,7 @@
-import React,{memo} from 'react';
+// src/views/discover/c-views/recommend/c-cpns/hot-recomend/index.tsx
+//  热门推荐组件
+
+import { memo } from 'react';
 import type { FC,ReactNode } from 'react';
 import { RecommendWrapper } from './style';
 import AreaHeaderV1 from '@/components/area-header-v1';
@@ -35,4 +38,4 @@ const HotRecommend: FC<IProps> = memo((props) => {
     );
 });
 
-export default memo(HotRecommend);
+export default HotRecommend;

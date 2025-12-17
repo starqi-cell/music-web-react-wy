@@ -1,10 +1,13 @@
-import React, { FC,ReactNode,useState, memo } from 'react';
+// src/views/discover/c-views/songs/c-cpns/songs-list/index.tsx
+//  歌单页面列表组件
+
+import { FC,ReactNode,useState, memo } from 'react';
 import { useDispatch, shallowEqual } from "react-redux";
 
 import { PER_PAGE_NUMBER } from '../../store/constants';
 import { getSongList } from "../../store/actionCreators";
 
-import HYThemeCover from '@/components/songs-menu-item';
+import ThemeCover from '@/components/songs-menu-item';
 import AppPagination from '@/components/pagination';
 import {
   SongListWrapper
@@ -17,10 +20,7 @@ interface IProps {
 }
 
 const SongsList: FC<IProps> = memo((props) => {
-  // hooks
   const [currentPage, setCurrentPage] = useState(1);
-
-  // redux
   const { categorySongs } = useAppSelector((state) => ({
     categorySongs: state.songs.categorySongs
   }), shallowEqual);
@@ -28,7 +28,7 @@ const SongsList: FC<IProps> = memo((props) => {
   const total = categorySongs.total || 0;
   const dispatch = useDispatch<any>();
 
-  function onPageChange(page: number, pageSize: number) {
+  function onPageChange(page: number) {
     setCurrentPage(page);
     dispatch(getSongList(page));
   }
@@ -39,7 +39,7 @@ const SongsList: FC<IProps> = memo((props) => {
         {
           songList.map((item, index) => {
             return (
-              <HYThemeCover itemData={item} key={item.id} />
+              <ThemeCover itemData={item} key={item.id} />
             )
           })
         }

@@ -1,4 +1,8 @@
-import React, { useEffect, memo, useState } from 'react';
+// src/views/discover/c-views/djradio/c-cpns/radio-ranking/index.tsx
+// 电台排行榜组件
+
+
+import { useEffect, memo, useState } from 'react';
 import { shallowEqual } from 'react-redux'
 
 import { 
@@ -14,23 +18,20 @@ import {
 import { useAppDispatch, useAppSelector } from '@/store';
 
 export default memo(function HYRadioRanking() {
-  // state
+
   const [currentPage, setCurrentPage] = useState(1);
 
-  // redux
   const { currentId, radios } = useAppSelector(state => ({
     currentId: state.djradio.currentId,
     radios: state.djradio.radios
   }), shallowEqual)
   const dispatch = useAppDispatch();
 
-  // hooks
   useEffect(() => {
     if (currentId === 0) return;
     dispatch(getRadios(currentId, 0))
   }, [dispatch, currentId]);
 
-  // hanlde function
   const onPageChange = (page: number, pageSize: number) => {
     setCurrentPage(page);
     dispatch(getRadios(currentId, page * 30));

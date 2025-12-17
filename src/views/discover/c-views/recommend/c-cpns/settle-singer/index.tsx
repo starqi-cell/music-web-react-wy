@@ -1,4 +1,7 @@
-import React,{memo} from 'react';
+// src/views/discover/c-views/recommend/c-cpns/settle-singer/index.tsx
+//  入驻歌手组件
+
+import { memo } from 'react';
 import type { FC,ReactNode } from 'react';
 import { SettleSingerWrapper } from './style';
 import AreaHeaderV2 from '@/components/area-header-v2';
@@ -39,4 +42,4 @@ const SettleSinger: FC<IProps> = memo((props) => {
     );
 });
 
-export default memo(SettleSinger);
+export default SettleSinger;

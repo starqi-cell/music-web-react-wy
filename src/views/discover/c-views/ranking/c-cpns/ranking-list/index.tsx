@@ -1,9 +1,13 @@
-import React, { FC,ReactNode,memo } from 'react';
-import { useSelector, shallowEqual } from "react-redux";
+// src/views/discover/c-views/ranking/c-cpns/ranking-list/index.tsx
+//  排行榜主列表组件
+
+import { FC,ReactNode,memo } from 'react';
+import { shallowEqual } from "react-redux";
 
 import {
-  getSizeImage,
-  formatMinuteSecond
+  getImageSize,
+  formatMinuteSecond,
+  formatString
 } from "@/utils/format"
 
 import HYThemeHeaderSong from '@/components/theme-header-song';
@@ -52,14 +56,14 @@ const RankingList: FC<IProps> = memo((props) => {
                       <div className="song-name">
                         {
                           index < 3 ?
-                            (<img src={getSizeImage(item.al.picUrl, 50)} alt="" />) : null
+                            (<img src={getImageSize(item.al.picUrl, 50)} alt="" />) : null
                         }
                         <span className="play sprite_table"></span>
                         <span className="name">{item.name}</span>
                       </div>
                     </td>
                     <td>{formatMinuteSecond(item.dt)}</td>
-                    <td>{item.ar[0].name}</td>
+                    <td>{formatString(item.ar.map((ar: any) => ar.name).join("/"))}</td>
                   </tr>
                 )
               })
@@ -71,4 +75,4 @@ const RankingList: FC<IProps> = memo((props) => {
   )
 })
 
-export default memo(RankingList);
+export default RankingList;

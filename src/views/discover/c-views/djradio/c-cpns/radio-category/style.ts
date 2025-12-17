@@ -1,3 +1,6 @@
+// src/views/discover/c-views/djradio/c-cpns/radio-category/style.ts
+// 电台分类组件样式文件
+
 import styled from 'styled-components';
 
 export const CategoryWrapper = styled.div`
@@ -72,7 +75,7 @@ export const CategoryContent = styled.div`
         width: 6px;
         height: 6px;
         border-radius: 50%;
-        background-color: #aaa;
+        background-color: #C20C0C;
       }
     }
 

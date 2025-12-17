@@ -1,3 +1,6 @@
+// src/views/discover/c-views/recommend/c-cpns/hot-anchor/style.ts
+//  热门主播组件样式文件
+
 import styled from "styled-components";
 
 export const HotAnchorWrapper = styled.div`

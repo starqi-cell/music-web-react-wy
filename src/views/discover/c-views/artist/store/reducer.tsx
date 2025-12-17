@@ -1,3 +1,6 @@
+// src/views/discover/c-views/artist/store/reducer.tsx
+// 歌手页面store reducer文件
+
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface ArtistState {

@@ -1,16 +1,14 @@
-import React, { useEffect, memo } from 'react';
+// src/views/discover/c-views/songs/index.tsx
+//  歌单页面组件
+
+import { useEffect, memo } from 'react';
 import type { FC,ReactNode } from 'react';
-
-
-import { useDispatch } from "react-redux";
-import { useLocation } from 'react-router-dom';
-
+import { useAppDispatch } from '@/store';
 import { 
   getCategory,
   getSongList,
   changeCurrentCategoryAction
 } from "./store/actionCreators";
-
 import SongsHeader from "./c-cpns/songs-header";
 import SongsList from './c-cpns/songs-list';
 import {
@@ -23,15 +21,8 @@ interface IProps {
 
 const Songs: FC<IProps> = memo((props) => {
 
-  const dispatch = useDispatch<any>();
-  const location = useLocation();
-  const cat = (location.state as any)?.cat;
+  const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    dispatch(changeCurrentCategoryAction(cat));
-  }, [dispatch, cat]);
-
-  // hooks
   useEffect(() => {
     dispatch(getCategory());
     dispatch(getSongList(0));

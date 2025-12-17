@@ -1,3 +1,6 @@
+// src/views/discover/c-views/ranking/style.ts
+//  排行榜页面样式文件
+
 import styled from "styled-components";
 
 export const RankingWrapper = styled.div`

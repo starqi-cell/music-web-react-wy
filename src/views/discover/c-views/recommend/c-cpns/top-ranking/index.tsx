@@ -1,10 +1,15 @@
-import React,{memo} from 'react';
+// src/views/discover/c-views/recommend/c-cpns/top-ranking/index.tsx
+//  榜单组件
+
+import { memo } from 'react';
 import type { FC,ReactNode } from 'react';
-import TopRankingItem from '../top-ranking-item';
-import { TopRankingWrapper } from './style';
+import { shallowEqual } from 'react-redux';
+
 import AreaHeaderV1 from '@/components/area-header-v1';
 import { useAppSelector } from '@/store';
-import { shallowEqual } from 'react-redux';
+
+import TopRankingItem from '../top-ranking-item';
+import { TopRankingWrapper } from './style';
 
 interface IProps {
     children?: ReactNode;

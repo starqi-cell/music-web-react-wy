@@ -1,19 +1,19 @@
 // src/service/request/type.ts
-//  封装网络请求相关类型
 
 import type { AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig } from 'axios'
 
-// 定义通用的拦截器接口
+// 1. 引入缓存库的配置类型 (这会自动扩展 AxiosRequestConfig)
+import type { CacheRequestConfig } from 'axios-cache-interceptor'
+
 export interface RequestInterceptors<T = AxiosResponse> {
-  // 请求拦截
   requestInterceptor?: (config: InternalAxiosRequestConfig) => InternalAxiosRequestConfig
   requestInterceptorCatch?: (error: any) => any
-  // 响应拦截
   responseInterceptor?: (res: T) => T
   responseInterceptorCatch?: (error: any) => any
 }
 
-// 扩展 Axios 自带的配置，加入我们自定义的拦截器
-export interface RequestConfig<T = AxiosResponse> extends AxiosRequestConfig {
+// 2. 这里继承 CacheRequestConfig 而不是 AxiosRequestConfig
+// 这样我们在调用 request 时就可以传入 cache: { ttl: ... } 了
+export interface RequestConfig<T = AxiosResponse> extends CacheRequestConfig {
   interceptors?: RequestInterceptors<T>
 }

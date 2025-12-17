@@ -1,42 +1,40 @@
-import React, { FC,ReactNode,useEffect, memo } from 'react';
-import classNames from "classnames";
-import { useDispatch, shallowEqual } from "react-redux";
+// src/views/discover/c-views/ranking/c-cpns/top-ranking/index.tsx
+//  排行榜左侧排行榜列表组件
 
-import { getSizeImage } from "@/utils/format";
+import { FC,ReactNode,useEffect, memo } from 'react';
+import classNames from "classnames";
+import { shallowEqual } from "react-redux";
+
+import { useAppSelector,useAppDispatch } from '@/store'
+import { getImageSize } from "@/utils/format";
+
 import {
   changeCurrentIndex,
   getRanking
-} from "../../store/actionCreators"
+} from "../../store/ranking";
 
 import {
   TopRankingWrapper
 } from "./style";
 
-import { useAppSelector } from '@/store'
-
-
-
 interface IProps {
     children?: ReactNode
 }
 
-
 const TopRanking: FC<IProps> = memo((props) => {
-  // redux
+
   const { topList, currentIndex } = useAppSelector((state) => ({
     topList: state.ranking.topList,
     currentIndex: state.ranking.currentIndex
   }), shallowEqual);
-  const dispatch = useDispatch<any>();
+  const dispatch = useAppDispatch();
 
-  // hooks
   useEffect(() => {
     const id = (topList[currentIndex] && topList[currentIndex].id);
     if (!id) return;
     dispatch(getRanking(id))
   }, [topList, dispatch, currentIndex])
 
-  // handle function
   const hanldeItemClick = (index: number) => {
     dispatch(changeCurrentIndex(index));
     const id = topList[currentIndex].id;
@@ -55,8 +53,8 @@ const TopRanking: FC<IProps> = memo((props) => {
             <div key={item.id}>
               {header}
               <div className={classNames("item", { "active": index === currentIndex })}
-                onClick={e => hanldeItemClick(index)}>
-                <img src={getSizeImage(item.coverImgUrl, 40)} alt="" />
+                onClick={() => hanldeItemClick(index)}>
+                <img src={getImageSize(item.coverImgUrl, 40)} alt="" />
                 <div className="info">
                   <div className="name">{item.name}</div>
                   <div className="update">{item.updateFrequency}</div>
@@ -70,4 +68,4 @@ const TopRanking: FC<IProps> = memo((props) => {
   )
 })
 
-export default memo(TopRanking)
+export default TopRanking

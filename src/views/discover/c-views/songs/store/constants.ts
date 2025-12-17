@@ -1,3 +1,6 @@
+// src/views/discover/c-views/songs/store/constants.ts
+//  歌单页面store常量文件
+
 export const CHANGE_CATEGORY = "songs/CHANGE_CATEGORY";
 export const CHANGE_CURRENT_CATEGORY = "songs/CHANGE_CURRENT_CATEGORY";
 export const CHANGE_CATEGORY_SONGS = "songs/CHANGE_CATEGORY_SONGS";

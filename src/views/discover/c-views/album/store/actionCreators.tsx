@@ -1,3 +1,6 @@
+// src/views/discover/c-views/album/store/actionCreators.tsx
+//  专辑页面store action创建函数文件
+
 import { getHotAlbums, getTopAlbums } from '@/service/album';
 import { changeHotAlbums, changeTopAlbums, changeTopTotal } from './reducer';
 import { AppDispatch } from '@/store';

@@ -1,3 +1,6 @@
+// src/views/discover/c-views/songs/c-cpns/songs-list/style.ts
+// 歌单页面列表组件样式文件
+
 import styled from 'styled-components';
 
 export const SongListWrapper = styled.div`

@@ -1,11 +1,17 @@
-import React,{memo, useRef} from 'react';
+// src/views/discover/c-views/recommend/c-cpns/new-album/index.tsx
+//  新碟上架组件
+
+import { memo, useRef } from 'react';
 import type { FC,ReactNode } from 'react';
+
 import type { CarouselRef } from 'antd/es/carousel';
-import { NewAlbumWrapper } from './style';
 import { Carousel } from 'antd';
-import AreaHeaderV1 from '@/components/area-header-v1';
+
 import { useAppSelector } from '@/store';
 import NewAlbumItem from '@/components/new-album-item';
+import AreaHeaderV1 from '@/components/area-header-v1';
+
+import { NewAlbumWrapper } from './style';
 
 interface IProps {
     children?: ReactNode;
@@ -57,4 +63,4 @@ const NewAlbum: FC<IProps> = memo((props) => {
     );
 });
 
-export default memo(NewAlbum);
+export default NewAlbum;

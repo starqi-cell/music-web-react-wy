@@ -1,3 +1,6 @@
+//  src/views/discover/c-cpns/nva-bar/style.ts
+//  发现音乐导航栏样式文件
+
 import styled from 'styled-components'
 
 export const NavBarWrapper = styled.div`

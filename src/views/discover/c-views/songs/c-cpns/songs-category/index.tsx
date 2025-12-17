@@ -1,5 +1,8 @@
-import React, { FC,ReactNode,memo } from 'react';
-import { useSelector, useDispatch, shallowEqual } from "react-redux";
+// src/views/discover/c-views/songs/c-cpns/songs-category/index.tsx
+// 歌单页面分类组件
+
+import { FC,ReactNode,memo } from 'react';
+import { shallowEqual } from "react-redux";
 
 import {
   changeCurrentCategoryAction,
@@ -17,10 +20,11 @@ interface IProps {
 }
 
 const SongsCategory: FC<IProps> = memo((props) => {
-  // redux
+
   const { category } = useAppSelector(state => ({
     category: state.songs.category
   }), shallowEqual);
+
   const dispatch = useAppDispatch();
 
   function selectCategory(name:any) {
@@ -32,7 +36,7 @@ const SongsCategory: FC<IProps> = memo((props) => {
     <CategoryWrapper>
       <div className="arrow sprite_icon"></div>
       <div className="all">
-        <span className="link" onClick={e => selectCategory("全部")}>全部风格</span>
+        <span className="link" onClick={() => selectCategory("全部")}>全部风格</span>
       </div>
       <div className="category">
         {
@@ -48,7 +52,7 @@ const SongsCategory: FC<IProps> = memo((props) => {
                     item.subs.map((sItem: any) => {
                       return (
                         <div className="item" key={sItem.name}>
-                          <span className="link" onClick={e => selectCategory(sItem.name)}>{sItem.name}</span>
+                          <span className="link" onClick={() => selectCategory(sItem.name)}>{sItem.name}</span>
                           <span className="divider">|</span>
                         </div>
                       )
@@ -64,4 +68,4 @@ const SongsCategory: FC<IProps> = memo((props) => {
   )
 })
 
-export default memo(SongsCategory);
+export default SongsCategory;

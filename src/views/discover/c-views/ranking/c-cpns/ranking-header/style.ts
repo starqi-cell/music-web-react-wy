@@ -1,3 +1,6 @@
+// src/views/discover/c-views/ranking/c-cpns/ranking-header/style.ts
+// 排行榜头部组件样式文件
+
 import styled from "styled-components";
 
 export const RankingHeaderWrapper = styled.div`

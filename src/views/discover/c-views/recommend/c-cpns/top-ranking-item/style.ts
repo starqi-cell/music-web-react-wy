@@ -1,3 +1,6 @@
+// src/views/discover/c-views/recommend/c-cpns/top-ranking-item/style.ts
+//  榜单项组件样式文件
+
 import styled from "styled-components";
 
 export const TopRankingItemWrapper = styled.div`
@@ -5,7 +8,6 @@ export const TopRankingItemWrapper = styled.div`
   &:last-child {
     width: 228px;
   }
-
   .header {
     height: 100px;
     display: flex;
@@ -21,12 +23,7 @@ export const TopRankingItemWrapper = styled.div`
         width: 80px;
         height: 80px;
       }
-
-
     }
-
-
-
     .info {
       margin: 5px 0 0 10px;
 
@@ -50,7 +47,6 @@ export const TopRankingItemWrapper = styled.div`
         margin: 8px 10px 0 0;
         cursor: pointer;
       }
-
       .play {
         background-position: -267px -205px;
 
@@ -68,7 +64,6 @@ export const TopRankingItemWrapper = styled.div`
       }
     }
   }
-
   .list {
     .list-item {
       position: relative;
@@ -99,7 +94,6 @@ export const TopRankingItemWrapper = styled.div`
 
         .name {
           flex: 1;
-
           white-space: nowrap;
           text-overflow: ellipsis;
           overflow: hidden;
@@ -125,8 +119,6 @@ export const TopRankingItemWrapper = styled.div`
 
           .play {
             background-position: -267px -268px;
-
-            
           }
 
           .addto {

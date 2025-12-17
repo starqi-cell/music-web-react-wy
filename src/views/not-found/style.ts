@@ -1,3 +1,6 @@
+// src/views/not-found/style.ts
+//  404页面样式文件
+
 import styled from "styled-components";
 
 export const NotFoundWrapper = styled.div`

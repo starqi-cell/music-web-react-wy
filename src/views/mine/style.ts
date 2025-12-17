@@ -1,3 +1,6 @@
+// src/views/mine/style.ts
+//  我的页面样式文件
+
 import styled from 'styled-components';
 
 export const MineWrapper = styled.div`

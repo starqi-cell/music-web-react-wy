@@ -1,3 +1,6 @@
+// src/views/discover/c-views/djradio/store/reducer.tsx
+// 电台页面store reducer文件
+
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface DjRadioState {
