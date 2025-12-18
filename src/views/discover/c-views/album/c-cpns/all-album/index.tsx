@@ -4,7 +4,7 @@
 import { memo, useEffect, useState } from 'react';
 import { shallowEqual } from 'react-redux';
 
-import { getTopAlbumsAction } from '../../store/actionCreators';
+import { getTopAlbumsAction } from '../../store/action';
 
 import ThemeHeaderNormal from "@/components/theme-header-normal";
 import AlbumCover from "@/components/album-cover";
@@ -14,7 +14,7 @@ import {
 } from './style';
 import { useAppDispatch, useAppSelector } from '@/store';
 
-export default memo(function HYTopAlbum() {
+export default memo(function TopAlbum() {
   const [currentPage, setCurrentPage] = useState(1);
 
   const { topAlbums, total } = useAppSelector(state => ({

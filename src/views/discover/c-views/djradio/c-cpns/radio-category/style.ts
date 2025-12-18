@@ -70,7 +70,6 @@ export const CategoryContent = styled.div`
       height: 20px;
       display: flex;
       align-items: center;
-
       button {
         width: 6px;
         height: 6px;

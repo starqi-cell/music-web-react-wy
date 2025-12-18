@@ -13,7 +13,7 @@ export const getRadioCategories = () => {
   return (dispatch: AppDispatch) => {
     getDjRadioCatelist().then(res => {
       dispatch(changeCategory(res.categories));
-      const currentId = res.categories[0].id;
+      const currentId = res.categories?.[0].id;
       dispatch(changeCurrentIdAction(currentId));
     })
   }

@@ -2,18 +2,21 @@
 //  热门新碟组件
 
 import { memo, useEffect } from 'react';
+import type { FC,ReactNode } from 'react';
 import { shallowEqual } from 'react-redux';
 
-import { getHotAlbumsAction } from '../../store/actionCreators';
-
+import { useAppDispatch, useAppSelector } from '@/store';
 import AlbumCover from '@/components/album-cover';
 import ThemeHeaderNormal from '@/components/theme-header-normal';
-import {
-  HotAlbumWrapper
-} from './style';
-import { useAppDispatch, useAppSelector } from '@/store';
 
-export default memo(function HYHotAlbum() {
+import { HotAlbumWrapper } from './style';
+import { getHotAlbumsAction } from '../../store/action';
+
+interface IProps {
+    children?: ReactNode;
+}
+
+const HotAlbum: FC<IProps> = memo((props) => {
 
   const { hotAlbums } = useAppSelector(state => ({
     hotAlbums: state.album.hotAlbums
@@ -41,3 +44,5 @@ export default memo(function HYHotAlbum() {
     </HotAlbumWrapper>
   )
 });
+
+export default HotAlbum;

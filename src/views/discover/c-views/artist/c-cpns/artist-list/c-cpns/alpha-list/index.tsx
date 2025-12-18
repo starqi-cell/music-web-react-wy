@@ -1,16 +1,22 @@
-import React, { memo, useState, useEffect } from 'react';
+// 歌手首字母列表组件
+// 用于展示歌手列表的首字母筛选功能
+
+import { memo, useState, useEffect } from 'react';
+import type { FC,ReactNode } from 'react';
 import { shallowEqual } from 'react-redux';
 import classNames from 'classnames';
 
 import { singerAlphas } from '@/utils/handle-data';
-import { getArtistListAction } from '../../../../store/actionCreators';
-
-import {
-  AlphaListWrapper
-} from './style';
 import { useAppDispatch, useAppSelector } from '@/store';
 
-export default memo(function HYAlphaList() {
+import { getArtistListAction } from '../../../../store/actionCreators';
+import { AlphaListWrapper } from './style';
+
+interface IProps {
+    children?: ReactNode;
+}
+
+const AlphaList: FC<IProps> = memo((props) => {
   const [currentAlpha, setCurrentAlpha] = useState("-1");
 
   const { currentType, currentArea } = useAppSelector(state => ({
@@ -45,4 +51,6 @@ export default memo(function HYAlphaList() {
       }
     </AlphaListWrapper>
   )
-})
+});
+
+export default AlphaList;

@@ -8,7 +8,7 @@ import {
   getCategory,
   getSongList,
   changeCurrentCategoryAction
-} from "./store/actionCreators";
+} from "./store/action";
 import SongsHeader from "./c-cpns/songs-header";
 import SongsList from './c-cpns/songs-list';
 import {

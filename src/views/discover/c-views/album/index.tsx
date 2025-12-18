@@ -5,7 +5,7 @@ import { memo } from 'react';
 import type { FC, ReactNode } from 'react';
 
 import HYHotAlbum from './c-cpns/hot-album';
-import HYTopAlbum from './c-cpns/top-album';
+import HYTopAlbum from './c-cpns/all-album';
 import { AblumWrapper } from './style';
 
 interface IProps {

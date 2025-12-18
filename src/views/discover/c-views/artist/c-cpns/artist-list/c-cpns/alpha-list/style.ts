@@ -1,3 +1,6 @@
+// src/views/discover/c-views/artist/c-cpns/artist-list/c-cpns/alpha-list/style.ts
+// 歌手首字母列表样式文件
+
 import styled from 'styled-components';
 
 export const AlphaListWrapper = styled.div<{hasTop: boolean}>`

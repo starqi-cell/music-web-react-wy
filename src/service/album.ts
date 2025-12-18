@@ -15,7 +15,7 @@ export function getHotAlbums() {
 export function getTopAlbums(limit: number, offset: number) {
   return appRequest.get({
     //新碟上架
-    url: "/top/album",
+    url: "/album/newest",
     params: {
       limit,
       offset

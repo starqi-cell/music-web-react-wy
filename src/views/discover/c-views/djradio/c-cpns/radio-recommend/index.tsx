@@ -2,28 +2,29 @@
 // 优秀新电台组件
 
 import { useEffect, memo } from 'react';
+import type { FC,ReactNode } from 'react';
 import { shallowEqual } from 'react-redux';
-
-import { 
-  getRadioRecommend
-} from "../../store/actionCreators";
 
 import ThemeHeaderNormal from '@/components/theme-header-normal';
 import AppRadioRecomendCover from '@/components/radio-recommend-cover';
-import {
-  RecommendWrapper
-} from "./style";
 import { useAppDispatch, useAppSelector } from '@/store';
 
-export default memo(function HYRadioRecommend() {
-  // redux
+import { getRadioRecommend } from "../../store/action";
+import { RecommendWrapper } from "./style";
+
+interface IProps {
+    children?: ReactNode;
+}
+
+const RadioRecommend: FC<IProps> = memo((props) => {
+
   const { currentId, recommends } = useAppSelector(state => ({
     currentId: state.djradio.currentId,
     recommends: state.djradio.recommends
   }), shallowEqual);
+
   const dispatch = useAppDispatch();
 
-  // hooks
   useEffect(() => {
     if (currentId === 0) return;
     dispatch(getRadioRecommend(currentId));
@@ -41,4 +42,6 @@ export default memo(function HYRadioRecommend() {
       </div>
     </RecommendWrapper>
   )
-})
+});
+
+export default RadioRecommend;

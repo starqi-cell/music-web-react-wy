@@ -1,14 +1,12 @@
 // src/views/discover/c-views/djradio/c-cpns/radio-ranking/index.tsx
 // 电台排行榜组件
 
-
 import { useEffect, memo, useState } from 'react';
 import { shallowEqual } from 'react-redux'
-
+import type { FC,ReactNode } from 'react';
 import { 
   getRadios
-} from "../../store/actionCreators";
-
+} from "../../store/action";
 import ThemeHeaderNormal from '@/components/theme-header-normal';
 import AppRadioRankingCover from '@/components/radio-ranking-cover';
 import AppPagination from '@/components/pagination';
@@ -17,7 +15,11 @@ import {
 } from "./style";
 import { useAppDispatch, useAppSelector } from '@/store';
 
-export default memo(function HYRadioRanking() {
+interface IProps {
+    children?: ReactNode;
+}
+
+const RadioRanking: FC<IProps> = memo((props) => {
 
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -53,4 +55,6 @@ export default memo(function HYRadioRanking() {
                     onPageChange={onPageChange}/>
     </RankingWraper>
   )
-})
+});
+
+export default RadioRanking;

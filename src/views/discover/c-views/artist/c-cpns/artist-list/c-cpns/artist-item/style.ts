@@ -1,3 +1,6 @@
+// src/views/discover/c-views/artist/c-cpns/artist-list/c-cpns/artist-item/style.ts
+// 歌手列表项组件样式文件
+
 import styled from 'styled-components';
 
 export const ItemWrapper = styled.div`

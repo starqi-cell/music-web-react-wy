@@ -5,7 +5,7 @@ import { FC,ReactNode,useState, memo } from 'react';
 import { useDispatch, shallowEqual } from "react-redux";
 
 import { PER_PAGE_NUMBER } from '../../store/constants';
-import { getSongList } from "../../store/actionCreators";
+import { getSongList } from "../../store/action";
 
 import ThemeCover from '@/components/songs-menu-item';
 import AppPagination from '@/components/pagination';

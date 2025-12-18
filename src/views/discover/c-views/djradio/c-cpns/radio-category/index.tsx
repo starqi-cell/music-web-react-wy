@@ -12,14 +12,14 @@ import { useAppDispatch, useAppSelector } from '@/store';
 import {
   getRadioCategories,
   changeCurrentIdAction
-} from "../../store/actionCreators";
+} from "../../store/action";
 import {
   CategoryWrapper,
   CategoryContent,
   CategoryItemImage
 } from "./style";
 
-const PAGE_SIZE = 16;
+const PAGE_SIZE = 20;
 
 interface IProps {
     children?: ReactNode;
@@ -41,7 +41,11 @@ const RadioCategory: FC<IProps> = memo((props) => {
   const carouselRef = useRef<any>(null);
 
   function getSize(index: number) {
-    return index * PAGE_SIZE > categories.length ? index * PAGE_SIZE : categories.length;
+    if(index * PAGE_SIZE > categories.length) {
+      return categories.length;
+    } else {
+      return index * PAGE_SIZE;
+    }
   }
 
   return (
@@ -57,7 +61,7 @@ const RadioCategory: FC<IProps> = memo((props) => {
                     categories.slice(index * PAGE_SIZE, getSize(index + 1)).map((item: any, indey: number) => {
                       return (
                         <div key={item.id} 
-                             onClick={e => dispatch(changeCurrentIdAction(item.id))}
+                             onClick={() => dispatch(changeCurrentIdAction(item.id))}
                              className={classnames("category-item", {"active": currentId === item.id})}>
                           <CategoryItemImage className="image" imgUrl={item.picWebUrl}></CategoryItemImage>
                           <span>{item.name}</span>

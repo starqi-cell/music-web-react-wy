@@ -35,7 +35,7 @@ const TopRankingItem: FC<IProps> = memo((props) => {
             <div className="info">
                 <div className="name">{itemData.name}</div>
                 <div>
-                    <button className="sprite_02 btn play" onClick={() => handlePlaySong(tracks[0]?.id)}></button>
+                    <button className="sprite_02 btn play" onClick={() => handlePlaySong(tracks?.[0]?.id)}></button>
                     <button className="sprite_02 btn favor"></button>
                 </div>
             </div>

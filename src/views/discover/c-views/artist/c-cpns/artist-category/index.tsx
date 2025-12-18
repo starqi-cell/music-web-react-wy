@@ -2,6 +2,7 @@
 // 歌手分类组件
 
 import { memo } from 'react';
+import type { FC,ReactNode } from 'react';
 import { shallowEqual } from 'react-redux';
 import classNames from 'classnames';
 
@@ -11,7 +12,11 @@ import { CategoryWrapper, CategoryItem } from './style';
 import { changeCurrentAreaAction, changeCurrentTypeAction } from '../../store/actionCreators';
 import { useAppDispatch, useAppSelector } from '@/store';
 
-export default memo(function HYArtistCategory() {
+interface IProps {
+    children?: ReactNode;
+}
+
+const ArtistCategory: FC<IProps> = memo((props) => {
 
   const {currentArea, currentType} = useAppSelector(state => ({
     currentArea: state.artist.currentArea,
@@ -56,4 +61,6 @@ export default memo(function HYArtistCategory() {
       }
     </CategoryWrapper>
   )
-})
+});
+
+export default ArtistCategory;

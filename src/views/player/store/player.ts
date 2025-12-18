@@ -21,7 +21,7 @@ export const fetchCurrentSongDataAction = createAsyncThunk<void,number,{ state: 
   if (!currentSong) {
     const detailRes = await getSongDetail(id)
     if (!detailRes?.songs?.length) return
-    currentSong = detailRes.songs[0]
+    currentSong = detailRes.songs?.[0]
     const newPlaySongList = [...playSongList, currentSong]
     dispatch(changePlaySongListAction(newPlaySongList))
     songIndex = newPlaySongList.length - 1

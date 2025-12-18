@@ -7,7 +7,7 @@ import { shallowEqual } from "react-redux";
 import {
   changeCurrentCategoryAction,
   getSongList
-} from "../../store/actionCreators";
+} from "../../store/action";
 
 import {
   CategoryWrapper

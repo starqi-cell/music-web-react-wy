@@ -32,10 +32,7 @@ export const getCategory = () => {
 
 export const getSongList = (page: number) => {
   return (dispatch: Dispatch, getState: () => RootState) => {
-    // 1.获取currentCategory
     const name = getState().songs.currentCategory;
-
-    // 2.获取数据
     getSongCategoryList(name, page * PER_PAGE_NUMBER).then(res => {
       dispatch(changeCategorySongs(res));
     });

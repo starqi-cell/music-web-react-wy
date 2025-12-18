@@ -1,4 +1,7 @@
-import React, { memo } from 'react';
+// src/views/discover/c-views/artist/c-cpns/artist-list/c-cpns/artist-item/index.tsx
+// 歌手列表项组件
+
+import { memo } from 'react';
 import type { FC, ReactNode } from 'react';
 
 import { getImageSize } from '@/utils/format';
@@ -11,7 +14,7 @@ interface IProps {
   index: number;
 }
 
-const HYArtistItemV1: FC<IProps> = memo((props) => {
+const ArtistItemV1: FC<IProps> = memo((props) => {
   const { info, index } = props;
 
   return (
@@ -31,4 +34,4 @@ const HYArtistItemV1: FC<IProps> = memo((props) => {
   )
 })
 
-export default HYArtistItemV1;
+export default ArtistItemV1;
