@@ -17,6 +17,7 @@ export function usePlayer() {
   const [currentTime, setCurrentTime] = useState(0)
   const [progress, setProgress] = useState(0)
   const [isChanging, setIsChanging] = useState(false)
+  const [volume, setVolume] = useState(0.5) // 新增音量状态
 
   const audioRef = useRef<HTMLAudioElement>(null)
   const sliderChangeTimerRef = useRef<number | null>(null)
@@ -170,6 +171,14 @@ export function usePlayer() {
     }
   }
 
+  // 音量改变处理
+  const handleVolumeChange = useCallback((value: number) => {
+    if (audioRef.current) {
+      audioRef.current.volume = value / 100
+      setVolume(value / 100)
+    }
+  }, [])
+
   return {
     isPlaying,
     currentTime,
@@ -179,12 +188,14 @@ export function usePlayer() {
     currentSong,
     currentSongUrl,
     audioRef,
+    volume, // 导出 volume
     handleTimeUpdate,
     handlePlayEnded,
     handleSliderChange,
     handleLoadedMetadata,
     togglePlay,
     changeSong,
-    changeMode
+    changeMode,
+    handleVolumeChange // 导出 handleVolumeChange
   }
 }

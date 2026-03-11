@@ -1,7 +1,7 @@
 // src/views/player/app-player-bar/index.tsx
 //  底部播放器组件
 
-import { memo } from 'react'
+import { memo, useState } from 'react'
 import type { FC, ReactNode } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Slider } from 'antd'
@@ -23,14 +23,18 @@ const AppPlayerBar: FC<IProps> = () => {
     progress,
     playMode,
     currentSong,
+    volume,
     handleTimeUpdate,
     handlePlayEnded,
     handleSliderChange,
     handleLoadedMetadata,
     togglePlay,
     changeSong,
-    changeMode
+    changeMode,
+    handleVolumeChange,
   } = usePlayer()
+
+  const [ isShowVolume, setIsShowVolume ] = useState(false);
 
   const singerName = (currentSong?.ar ?? []).map((item: any) => item.name).join(' / ')
   const coverUrl = currentSong?.al?.picUrl
@@ -90,7 +94,16 @@ const AppPlayerBar: FC<IProps> = () => {
             <button className="btn sprite_playbar share"></button>
           </div>
           <div className="right sprite_playbar">
-            <button className="btn sprite_playbar volume"></button>
+            {/* 音量条容器 */}
+            <div className='volume-control' style={{ display: isShowVolume ? 'block' : 'none' }}>
+                <Slider 
+                    vertical 
+                    defaultValue={50} 
+                    value={volume * 100}
+                    onChange={handleVolumeChange}
+                />
+            </div>
+            <button className="btn sprite_playbar volume" onClick={() => setIsShowVolume(!isShowVolume)}></button>
             <button
               className="btn sprite_playbar loop"
               onClick={changeMode}

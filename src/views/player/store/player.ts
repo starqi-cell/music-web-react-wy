@@ -77,14 +77,36 @@ async function fetchSongLyricAndDispatch(id: number, dispatch: any) {
   }
 }
 
+// 用于存储当前的 AbortController
+let currentSongUrlAbortController: AbortController | null = null;
+
 // 获取歌曲播放地址并更新到store
 async function fetchSongUrlAndDispatch(id: number, dispatch: any) {
+  // 如果存在上一次未完成的请求，取消它
+  if (currentSongUrlAbortController) {
+    currentSongUrlAbortController.abort();
+    currentSongUrlAbortController = null;
+  }
+
+  // 创建新的 AbortController
+  currentSongUrlAbortController = new AbortController();
+  const signal = currentSongUrlAbortController.signal;
+
   try {
-    const res = await getSongPlayUrl(id)
+    const res = await getSongPlayUrl(id, signal)
     const url = res?.data?.[0]?.url ?? ''
     dispatch(changeCurrentSongUrlAction(url || getPlayerUrl(id)))
-  } catch (error) {
+  } catch (error: any) {
+    // 如果是取消请求导致的错误，直接返回，不更新状态
+    if (error.code === 'ERR_CANCELED' || error.name === 'AbortError' || error.message === 'canceled') {
+      return;
+    }
     dispatch(changeCurrentSongUrlAction(getPlayerUrl(id)))
+  } finally {
+    // 请求完成（无论成功失败），清除 controller 引用
+    if (currentSongUrlAbortController?.signal === signal) {
+      currentSongUrlAbortController = null;
+    }
   }
 }
 

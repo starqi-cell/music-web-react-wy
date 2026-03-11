@@ -21,11 +21,12 @@ export function getSongLyric(id: number) {
   })
 }
 
-export function getSongPlayUrl(id: number) {
+export function getSongPlayUrl(id: number, signal?: AbortSignal) {
   return AppRequest.get({
     url: '/song/url',
     params: {
       id
-    }
+    },
+    signal
   })
 }

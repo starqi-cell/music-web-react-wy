@@ -166,6 +166,38 @@ export const BarOperator = styled.div<IBarOperator>`
     width: 126px;
     padding-left: 13px;
     background-position: -147px -248px;
+    position: relative; /* 添加相对定位，作为音量条的参照 */
+
+    .volume-control {
+        position: absolute;
+        top: -150px;
+        left: 9px;
+        clear: both;
+        width: 32px;
+        height: 140px;
+        overflow: hidden;
+        padding: 10px 0;
+        background-position: 0 -503px;
+
+        /* 这里可能需要额外的背景图或者样式来美化音量条背景 */
+        background-color: rgba(0, 0, 0, 0.5); /* 简单用半透明黑底替代 */
+        border-radius: 4px;
+
+        .ant-slider-vertical {
+            margin: 0 auto;
+            height: 120px;
+            
+            .ant-slider-rail {
+                background-color: #000;
+            }
+            .ant-slider-track {
+                 background-color: #c20c0c;
+            }
+            .ant-slider-handle {
+                border-color: #c20c0c;
+            }
+        }
+    }
 
     .volume {
       background-position: -2px -248px;
