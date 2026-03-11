@@ -25,4 +25,8 @@ module.exports = {
       Component: resolve('src/components'),
     },
   },
+  devServer: (devServerConfig) => {
+    devServerConfig.allowedHosts = 'all';
+    return devServerConfig;
+  },
 }

@@ -11,6 +11,7 @@ const Mine = React.lazy(() => import('@/views/mine'));
 const Player = React.lazy(() => import('@/views/player'));
 const NotFound = React.lazy(() => import('@/views/not-found'));
 const Login = React.lazy(() => import('@/views/user-login'));
+const Explore = React.lazy(() => import('@/views/explore'));
 
 const Artist = React.lazy(() => import('@/views/discover/c-views/artist'));
 const Djradio = React.lazy(() => import('@/views/discover/c-views/djradio'));
@@ -77,6 +78,10 @@ const routes:RouteObject[]=[
     {
         path:'/user/login',
         element:<Login />
+    },
+    {
+        path:'/explore',
+        element:<Explore />
     },
     {
         path:'*',

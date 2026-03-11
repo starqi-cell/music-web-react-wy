@@ -11,16 +11,19 @@ import songsReducer from "@/views/discover/c-views/songs/store/reducer";
 import artistReducer from "@/views/discover/c-views/artist/store/reducer";
 import albumReducer from "@/views/discover/c-views/album/store/reducer";
 import djradioReducer from "@/views/discover/c-views/djradio/store/reducer";
+import searchReducer from "@/views/explore/store/search";
+
 
 const store = configureStore({
   reducer: {
-    recommend: recommendReducer, 
+    recommend: recommendReducer,
     player: playerReducer,
     ranking: rankingReducer,
     songs: songsReducer,
     artist: artistReducer,
     album: albumReducer,
-    djradio: djradioReducer
+    djradio: djradioReducer,
+    search: searchReducer
   },
 });
 
